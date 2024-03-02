@@ -29,6 +29,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define led_cant 3
+#define index ((led_cant*2) - 1)
 #define delay 200
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -70,90 +71,122 @@ int main(void) {
 	/* Initialize BSP PB for BUTTON_USER */
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 
-	int state = 0, flag = 0, led_array[led_cant], i = 0;
+	int state = 0, button_state_before = 0, led_array[led_cant], s = 0, j = 0,
+			k = 0;
 
-	led_array[0]=LED1;
-	led_array[1]=LED2;
-	led_array[2]=LED3;
-
+	led_array[0] = LED1;
+	led_array[1] = LED2;
+	led_array[2] = LED3;
 
 	/* Infinite loop */
 	while (1) {
 
 		//Detecto si hubo flanco ascendente y guardo flag
-		if ((BSP_PB_GetState(BUTTON_USER) != 0) && flag == 0) {
+		if ((BSP_PB_GetState(BUTTON_USER) != 0) && button_state_before == 0) {
 
-			flag = 1;
+			button_state_before = 1;
 
 		}
 
 		//Si hubo flanco descendente (es porque antes hubo ascendete), reinicio
 		//bansdera y cambio de estado al estado anterior
-		if ((BSP_PB_GetState(BUTTON_USER) != 1) && flag == 1) {
+		if ((BSP_PB_GetState(BUTTON_USER) != 1) && button_state_before == 1) {
 
 			//state es igual al state negado, y le pongo una mascara de
 			//un bit, porque sino state valdria o 0xFF o 0x00, y necesitamos
 			//0x00 o 0x01
 			state = ((~state) & ((int) 1));
-			flag = 0;
+			button_state_before = 0;
 
 		}
 
-		//Depende del estado hace una secuencia u otra
-		if (state) {
-
-			for (i = 0; i < led_cant*2; i++) {
-				BSP_LED_Toggle(led_array[i/2]);
-				HAL_Delay(delay);
-			}
-
-		} else {
-
-			for (i = led_cant*2-1; i > -1; i--) {
-				BSP_LED_Toggle(led_array[i/2]);
-				HAL_Delay(delay);
-			}
-
-		}
-/*
+		//Este código primero define los parámetros del for y del indice del vector, para luego
+		//ejecutar unicamente un solo for() con distinto indice
 
 		if (state) {
 
-			//Enciende y apaga LED1
-			BSP_LED_On(LED1);
-			HAL_Delay(200);
-			BSP_LED_Off(LED1);
-			HAL_Delay(200);
-			//Enciende y apaga LED2
-			BSP_LED_On(LED2);
-			HAL_Delay(200);
-			BSP_LED_Off(LED2);
-			HAL_Delay(200);
-			//Enciende y apaga LED3
-			BSP_LED_On(LED3);
-			HAL_Delay(200);
-			BSP_LED_Off(LED3);
-			HAL_Delay(200);
+			j = 0;
+			k = index;
+			s = 1;
 
 		} else {
-			//Enciende y apaga LED3
-			BSP_LED_On(LED3);
-			HAL_Delay(200);
-			BSP_LED_Off(LED3);
-			HAL_Delay(200);
-			//Enciende y apaga LED2
-			BSP_LED_On(LED2);
-			HAL_Delay(200);
-			BSP_LED_Off(LED2);
-			HAL_Delay(200);
-			//Enciende y apaga LED1
-			BSP_LED_On(LED1);
-			HAL_Delay(200);
-			BSP_LED_Off(LED1);
-			HAL_Delay(200);
+
+			j = -index;
+			k = 0;
+			s = -1;
 
 		}
-*/
+
+		for (int i = j; i <= k; i++) {
+			BSP_LED_Toggle(led_array[(i * s / 2)]);
+			HAL_Delay(delay);
+		}
+
+
+
+		/*
+
+		 //Depende del estado hace una secuencia u otra, utilizando un vector de leds
+
+
+		 if (state) {
+
+		 for (i = 0; i <= led_cant*2-1; i++) {
+		 BSP_LED_Toggle(led_array[i/2]);
+		 HAL_Delay(delay);
+		 }
+
+		 } else {
+
+		 for (i = led_cant*2-1; i >= 0; i--) {
+		 BSP_LED_Toggle(led_array[i/2]);
+		 HAL_Delay(delay);
+		 }
+
+		 }
+
+		 */
+
+		/*
+
+//Este código es el más sencillo y solo se basa en generar la secuencia
+		 if (state) {
+
+		 //Enciende y apaga LED1
+		 BSP_LED_On(LED1);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED1);
+		 HAL_Delay(200);
+		 //Enciende y apaga LED2
+		 BSP_LED_On(LED2);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED2);
+		 HAL_Delay(200);
+		 //Enciende y apaga LED3
+		 BSP_LED_On(LED3);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED3);
+		 HAL_Delay(200);
+
+		 } else {
+		 //Enciende y apaga LED3
+		 BSP_LED_On(LED3);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED3);
+		 HAL_Delay(200);
+		 //Enciende y apaga LED2
+		 BSP_LED_On(LED2);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED2);
+		 HAL_Delay(200);
+		 //Enciende y apaga LED1
+		 BSP_LED_On(LED1);
+		 HAL_Delay(200);
+		 BSP_LED_Off(LED1);
+		 HAL_Delay(200);
+
+		 }
+		 */
 
 	}
 }
