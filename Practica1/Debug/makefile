@@ -38,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Ej1_pushButton
+BUILD_ARTIFACT_NAME := Practica1
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Ej1_pushButton.elf \
+Practica1.elf \
 
 MAP_FILES += \
-Ej1_pushButton.map \
+Practica1.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Ej1_pushButton.list \
+Practica1.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Ej1_pushButton.elf secondary-outputs
+main-build: Practica1.elf secondary-outputs
 
 # Tool invocations
-Ej1_pushButton.elf Ej1_pushButton.map: $(OBJS) $(USER_OBJS) /home/flealu/Documents/GitHub/PdM_workspace_FA/Ej1_pushButton/STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Ej1_pushButton.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Ej1_pushButton/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Ej1_pushButton.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Practica1.elf Practica1.map: $(OBJS) $(USER_OBJS) /home/flealu/Documents/GitHub/PdM_workspace_FA/Practica1/STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Practica1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica1/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -74,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Ej1_pushButton.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Ej1_pushButton.list"
+Practica1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Practica1.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Ej1_pushButton.elf Ej1_pushButton.list Ej1_pushButton.map default.size.stdout
+	-$(RM) Practica1.elf Practica1.list Practica1.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
