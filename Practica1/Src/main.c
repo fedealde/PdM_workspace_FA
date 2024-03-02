@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "stdint.h"
 
 /** @addtogroup STM32F4xx_HAL_Examples
  * @{
@@ -27,6 +28,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+#define led_cant 3
+#define delay 200
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
@@ -42,17 +45,16 @@ static void Error_Handler(void);
  * @param  None
  * @retval None
  */
-int main(void)
-{
+int main(void) {
 	/* STM32F4xx HAL library initialization:
-       - Configure the Flash prefetch
-       - Systick timer is configured by default as source of time base, but user 
-         can eventually implement his proper time base source (a general purpose 
-         timer for example or other time source), keeping in mind that Time base 
-         duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and 
-         handled in milliseconds basis.
-       - Set NVIC Group Priority to 4
-       - Low Level Initialization
+	 - Configure the Flash prefetch
+	 - Systick timer is configured by default as source of time base, but user
+	 can eventually implement his proper time base source (a general purpose
+	 timer for example or other time source), keeping in mind that Time base
+	 duration should be kept 1ms since PPP_TIMEOUT_VALUEs are defined and
+	 handled in milliseconds basis.
+	 - Set NVIC Group Priority to 4
+	 - Low Level Initialization
 	 */
 	HAL_Init();
 
@@ -61,26 +63,102 @@ int main(void)
 
 	/* Initialize BSP Led for LED1 */
 	BSP_LED_Init(LED1);
+	/* Initialize BSP Led for LED2 */
+	BSP_LED_Init(LED2);
+	/* Initialize BSP Led for LED3 */
+	BSP_LED_Init(LED3);
 	/* Initialize BSP PB for BUTTON_USER */
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 
+	int state = 0, flag = 0, led_array[led_cant], i = 0;
+
+	led_array[0]=LED1;
+	led_array[1]=LED2;
+	led_array[2]=LED3;
+
 
 	/* Infinite loop */
-	while (1)
-	{
-		if(BSP_PB_GetState(BUTTON_USER)){
-			BSP_LED_On(LED1);
-			HAL_Delay(100);
-			BSP_LED_Off(LED1);
-			HAL_Delay(100);
+	while (1) {
+
+		//Detecto si hubo flanco ascendente y guardo flag
+		if ((BSP_PB_GetState(BUTTON_USER) != 0) && flag == 0) {
+
+			flag = 1;
 
 		}
+
+		//Si hubo flanco descendente (es porque antes hubo ascendete), reinicio
+		//bansdera y cambio de estado al estado anterior
+		if ((BSP_PB_GetState(BUTTON_USER) != 1) && flag == 1) {
+
+			//state es igual al state negado, y le pongo una mascara de
+			//un bit, porque sino state valdria o 0xFF o 0x00, y necesitamos
+			//0x00 o 0x01
+			state = ((~state) & ((int) 1));
+			flag = 0;
+
+		}
+
+		//Depende del estado hace una secuencia u otra
+		if (state) {
+
+			for (i = 0; i < led_cant*2; i++) {
+				BSP_LED_Toggle(led_array[i/2]);
+				HAL_Delay(delay);
+			}
+
+		} else {
+
+			for (i = led_cant*2-1; i > -1; i--) {
+				BSP_LED_Toggle(led_array[i/2]);
+				HAL_Delay(delay);
+			}
+
+		}
+/*
+
+		if (state) {
+
+			//Enciende y apaga LED1
+			BSP_LED_On(LED1);
+			HAL_Delay(200);
+			BSP_LED_Off(LED1);
+			HAL_Delay(200);
+			//Enciende y apaga LED2
+			BSP_LED_On(LED2);
+			HAL_Delay(200);
+			BSP_LED_Off(LED2);
+			HAL_Delay(200);
+			//Enciende y apaga LED3
+			BSP_LED_On(LED3);
+			HAL_Delay(200);
+			BSP_LED_Off(LED3);
+			HAL_Delay(200);
+
+		} else {
+			//Enciende y apaga LED3
+			BSP_LED_On(LED3);
+			HAL_Delay(200);
+			BSP_LED_Off(LED3);
+			HAL_Delay(200);
+			//Enciende y apaga LED2
+			BSP_LED_On(LED2);
+			HAL_Delay(200);
+			BSP_LED_Off(LED2);
+			HAL_Delay(200);
+			//Enciende y apaga LED1
+			BSP_LED_On(LED1);
+			HAL_Delay(200);
+			BSP_LED_Off(LED1);
+			HAL_Delay(200);
+
+		}
+*/
+
 	}
 }
 
-
-static void SystemClock_Config(void)
-{
+static void SystemClock_Config(void) {
 	RCC_ClkInitTypeDef RCC_ClkInitStruct;
 	RCC_OscInitTypeDef RCC_OscInitStruct;
 
@@ -88,8 +166,8 @@ static void SystemClock_Config(void)
 	__HAL_RCC_PWR_CLK_ENABLE();
 
 	/* The voltage scaling allows optimizing the power consumption when the device is
-     clocked below the maximum system frequency, to update the voltage scaling value 
-     regarding system frequency refer to product datasheet.  */
+	 clocked below the maximum system frequency, to update the voltage scaling value
+	 regarding system frequency refer to product datasheet.  */
 	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
 	/* Enable HSE Oscillator and activate PLL with HSE as source */
@@ -101,27 +179,25 @@ static void SystemClock_Config(void)
 	RCC_OscInitStruct.PLL.PLLN = 360;
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 7;
-	if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-	{
+	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
 		/* Initialization Error */
 		Error_Handler();
 	}
 
-	if(HAL_PWREx_EnableOverDrive() != HAL_OK)
-	{
+	if (HAL_PWREx_EnableOverDrive() != HAL_OK) {
 		/* Initialization Error */
 		Error_Handler();
 	}
 
 	/* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
-     clocks dividers */
-	RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+	 clocks dividers */
+	RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK
+			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
 	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
 	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
 	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
-	if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
-	{
+	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
 		/* Initialization Error */
 		Error_Handler();
 	}
@@ -131,12 +207,10 @@ static void SystemClock_Config(void)
  * @param  None
  * @retval None
  */
-static void Error_Handler(void)
-{
+static void Error_Handler(void) {
 	/* Turn LED2 on */
 	BSP_LED_On(LED2);
-	while (1)
-	{
+	while (1) {
 	}
 }
 
