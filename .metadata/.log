@@ -4316,3 +4316,20 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-03-01 21:30:46.004
 !MESSAGE Indexed 'Practica1' (99 sources, 208 headers) in 47.2 sec: 29,544 declarations; 93,680 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.12%)
+
+!ENTRY org.eclipse.egit.core 4 0 2024-03-01 23:08:27.701
+!MESSAGE An exception occurred during push on URI https://github.com/fedealde/PdM_workspace_FA.git: https://github.com/fedealde/PdM_workspace_FA.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/fedealde/PdM_workspace_FA.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:695)
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:637)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:541)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:140)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1557)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:269)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2024-03-01 23:08:27.715
+!MESSAGE Can't connect to any repository: https://github.com/fedealde/PdM_workspace_FA.git (https://github.com/fedealde/PdM_workspace_FA.git: not authorized)
