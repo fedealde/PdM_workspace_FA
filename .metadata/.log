@@ -4333,3 +4333,53 @@ org.eclipse.jgit.errors.TransportException: https://github.com/fedealde/PdM_work
 
 !ENTRY org.eclipse.egit.ui 4 0 2024-03-01 23:08:27.715
 !MESSAGE Can't connect to any repository: https://github.com/fedealde/PdM_workspace_FA.git (https://github.com/fedealde/PdM_workspace_FA.git: not authorized)
+!SESSION 2024-03-02 10:28:42.409 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-02 10:29:08.325
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-02 10:29:08.327
+!MESSAGE Log4j2 initialized with config file /home/flealu/Documents/GitHub/PdM_workspace_FA/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-02 10:29:16.337
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.egit.core 4 0 2024-03-02 12:45:14.397
+!MESSAGE An exception occurred during push on URI https://github.com/fedealde/PdM_workspace_FA.git: https://github.com/fedealde/PdM_workspace_FA.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://github.com/fedealde/PdM_workspace_FA.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:695)
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:637)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:541)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:140)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1557)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:269)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.egit.ui 4 0 2024-03-02 12:45:14.419
+!MESSAGE Can't connect to any repository: https://github.com/fedealde/PdM_workspace_FA.git (https://github.com/fedealde/PdM_workspace_FA.git: not authorized)
+!SESSION 2024-03-07 19:11:56.799 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-07 19:12:19.256
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-07 19:12:19.261
+!MESSAGE Log4j2 initialized with config file /home/flealu/Documents/GitHub/PdM_workspace_FA/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-07 19:12:39.696
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-07 19:45:39.411
+!MESSAGE Indexed 'Practica2' (99 sources, 208 headers) in 19.9 sec: 29,800 declarations; 90,709 references; 6 unresolved inclusions; 1,836 syntax errors; 1,822 unresolved names (1.5%)

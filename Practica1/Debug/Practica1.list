@@ -3821,8 +3821,10 @@ int main(void) {
 			button_state_before = 0;
  80018ba:	2300      	movs	r3, #0
  80018bc:	623b      	str	r3, [r7, #32]
-
 		}
+
+		//Este código primero define los parámetros del for y del indice del vector, para luego
+		//ejecutar unicamente un solo for() con distinto indice
 
 		if (state) {
  80018be:	6a7b      	ldr	r3, [r7, #36]	; 0x24
