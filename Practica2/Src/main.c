@@ -55,32 +55,41 @@ void delayWrite(delay_t *delay, tick_t duration);
 
 /* Private functions ---------------------------------------------------------*/
 
+/*Recibe el puntero a la estructura delay correspondiente para ser inicializada, junto a la
+ * duración deseada. No retorna nada*/
 void delayInit(delay_t *delay, tick_t duration) {
 
-	delay->startTime = 0;
-	delay->duration = duration;
-	delay->running = false;
+	if (delay != NULL) {
+
+		delay->startTime = 0;
+		delay->duration = duration;
+		delay->running = false;
+
+	}
 
 }
 
+/*Recibe el puntero a la estructura delay correspondiente para consultar si el tiempo
+ * de delay a concluido o inicia el delay si no ha sido iniciado. Retorna un bool con
+ * true si cumplió el tiempo o false si aún no*/
 bool_t delayRead(delay_t *delay) {
 
-	if(delay!=NULL){
+	if (delay != NULL) {
+		/*Inicializa si este aún no lo estaba*/
+		if (delay->running == false) {
 
-	if (delay->running == false) {
+			delay->startTime = HAL_GetTick();
+			delay->running = true;
+			return false;
 
-		delay->startTime = HAL_GetTick();
-		delay->running = true;
-		return false;
+		} else {
+			/*Verifica si se cumplio el tiempo*/
+			if ((HAL_GetTick() - delay->startTime) >= delay->duration) {
+				delay->running = false;
+				return true;
+			}
 
-	} else {
-
-		if ((HAL_GetTick() - delay->startTime) >= delay->duration) {
-			delay->running = false;
-			return true;
 		}
-
-	}
 
 	}
 
@@ -88,11 +97,13 @@ bool_t delayRead(delay_t *delay) {
 
 }
 
+/*Recibe la duración y el puntero a la estructura delay, para ingresar en este
+ * el valor de la duración. No retorna nada.*/
 void delayWrite(delay_t *delay, tick_t duration) {
 
-	if(delay!=NULL){
+	if (delay != NULL) {
 
-	delay->duration = duration;
+		delay->duration = duration;
 
 	}
 }
@@ -134,7 +145,7 @@ int main(void) {
 
 		/*
 
-		///////HIS PART WAS FOR THE 2nd EXERCISE///////
+		 ///////HIS PART WAS FOR THE 2nd EXERCISE///////
 
 		 for (int i = 0; i < LED_size; i++) {
 
@@ -150,7 +161,6 @@ int main(void) {
 		 */
 
 		///////THIS PART IS FOR THE 3rd EXERCISE///////
-
 		if (delayRead(&LED_delay[0])) {
 
 			BSP_LED_Toggle(LED_array[0]);
@@ -169,14 +179,12 @@ int main(void) {
 
 				}
 
-
 				delayWrite(&LED_delay[0],
 						LED_dur_patt_LEDone[LED_patt_LEDone_index]);
 
 			}
 
 		}
-
 
 	}
 
