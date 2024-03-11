@@ -4383,3 +4383,33 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-03-07 19:45:39.411
 !MESSAGE Indexed 'Practica2' (99 sources, 208 headers) in 19.9 sec: 29,800 declarations; 90,709 references; 6 unresolved inclusions; 1,836 syntax errors; 1,822 unresolved names (1.5%)
+!SESSION 2024-03-08 13:45:01.469 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-08 13:45:14.115
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-08 13:45:14.116
+!MESSAGE Log4j2 initialized with config file /home/flealu/Documents/GitHub/PdM_workspace_FA/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-08 13:45:22.965
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-03-10 22:45:42.436 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-10 22:45:52.952
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-10 22:45:52.955
+!MESSAGE Log4j2 initialized with config file /home/flealu/Documents/GitHub/PdM_workspace_FA/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-10 22:46:02.391
+!MESSAGE Started RMI Server, listening on port 41337

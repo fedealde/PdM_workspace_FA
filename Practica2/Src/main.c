@@ -20,7 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stdint.h"
+#include <stdint.h>
 
 /** @addtogroup STM32F4xx_HAL_Examples
  * @{
@@ -28,16 +28,27 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-
+#define LED_DELAY_QUANTITY 3
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-delay_t delay_a;
-tick_t duration = 100;
+
+/*General definitions like LED array, durations, delay structures and size*/
+Led_TypeDef LED_array[] = { LED1, LED2, LED3 };
+tick_t LED_duration[] = { 1000, 100, 100 };
+size_t LED_size = sizeof(LED_array) / sizeof(Led_TypeDef);
+delay_t LED_delay[LED_DELAY_QUANTITY];
+
+/*Definitions for LEDone: pattern, size, duration and index*/
+tick_t LED_dur_patt_LEDone[] = { 1000, 200, 100 };
+tick_t LED_patt_LEDone[] = { 5, 5, 5 };
+size_t LED_patt_LEDone_size = sizeof(LED_patt_LEDone) / sizeof(tick_t);
+uint8_t count = 0, LED_patt_LEDone_index = 0;
 
 /* Private function prototypes -----------------------------------------------*/
 
 static void SystemClock_Config(void);
 static void Error_Handler(void);
+
 void delayInit(delay_t *delay, tick_t duration);
 bool_t delayRead(delay_t *delay);
 void delayWrite(delay_t *delay, tick_t duration);
@@ -54,11 +65,12 @@ void delayInit(delay_t *delay, tick_t duration) {
 
 bool_t delayRead(delay_t *delay) {
 
+	if(delay!=NULL){
+
 	if (delay->running == false) {
 
 		delay->startTime = HAL_GetTick();
 		delay->running = true;
-
 		return false;
 
 	} else {
@@ -70,22 +82,20 @@ bool_t delayRead(delay_t *delay) {
 
 	}
 
-return false;
+	}
+
+	return false;
 
 }
 
+void delayWrite(delay_t *delay, tick_t duration) {
 
-void delayWrite(delay_t *delay, tick_t duration){
+	if(delay!=NULL){
 
 	delay->duration = duration;
 
+	}
 }
-
-
-
-
-
-
 
 /**
  * @brief  Main program
@@ -108,32 +118,69 @@ int main(void) {
 	/* Configure the system clock to 180 MHz */
 	SystemClock_Config();
 
-	/* Initialize BSP Led for LED1 */
-	BSP_LED_Init(LED1);
-	/* Initialize BSP Led for LED2 */
-	BSP_LED_Init(LED2);
-	/* Initialize BSP Led for LED3 */
-	BSP_LED_Init(LED3);
-	/* Initialize BSP PB for BUTTON_USER */
-	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
+	/* Initialize BSP for LED1, LED2, LED3 and BUTTON_USER; delay and it starts delays */
+	for (int i = 0; i < LED_size; i++) {
 
-	delayInit(&delay_a, duration);
-	delayRead(&delay_a);
+		BSP_LED_Init(LED_array[i]);
+		delayInit(&LED_delay[i], LED_duration[i]);
+		delayRead(&LED_delay[i]);
+
+	}
+
+	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 
 	/* Infinite loop */
 	while (1) {
 
-		if(delayRead(&delay_a)){
+		/*
 
-			BSP_LED_Toggle(LED1);
-			delayRead(&delay_a);
+		///////HIS PART WAS FOR THE 2nd EXERCISE///////
+
+		 for (int i = 0; i < LED_size; i++) {
+
+		 if (delayRead(&LED_delay[i])) {
+
+		 BSP_LED_Toggle(LED_array[i]);
+		 delayRead(&LED_delay[i]);
+
+		 }
+
+		 }
+
+		 */
+
+		///////THIS PART IS FOR THE 3rd EXERCISE///////
+
+		if (delayRead(&LED_delay[0])) {
+
+			BSP_LED_Toggle(LED_array[0]);
+			count++;
+
+			/*It *2 because we have 2 states for each period (ON and OFF) */
+			if (count == LED_patt_LEDone[LED_patt_LEDone_index] * 2) {
+
+				count = 0;
+				LED_patt_LEDone_index++;
+
+				/*When the position exceeds the size, index is reset*/
+				if (LED_patt_LEDone_index == LED_patt_LEDone_size) {
+
+					LED_patt_LEDone_index = 0;
+
+				}
+
+
+				delayWrite(&LED_delay[0],
+						LED_dur_patt_LEDone[LED_patt_LEDone_index]);
+
+			}
 
 		}
 
 
 	}
-}
 
+}
 static void SystemClock_Config(void) {
 	RCC_ClkInitTypeDef RCC_ClkInitStruct;
 	RCC_OscInitTypeDef RCC_OscInitStruct;

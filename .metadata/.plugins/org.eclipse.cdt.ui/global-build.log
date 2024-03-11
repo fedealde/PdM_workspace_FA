@@ -1,4 +1,4 @@
-22:00:17 **** Incremental Build of configuration Debug for project Practica2 ****
+23:15:33 **** Incremental Build of configuration Debug for project Practica2 ****
 make -j4 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,19 +7,12 @@ Finished building target: Practica2.elf
 arm-none-eabi-size  Practica2.elf 
 arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
    text	   data	    bss	    dec	    hex	filename
-   6672	     40	   1584	   8296	   2068	Practica2.elf
+   6788	     56	   1608	   8452	   2104	Practica2.elf
 Finished building: default.size.stdout
  
 Finished building: Practica2.list
  
-22:00:22 **** Incremental Build of configuration Debug for project Practica2 ****
-make -j4 all 
-arm-none-eabi-size  Practica2.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6672	     40	   1584	   8296	   2068	Practica2.elf
-Finished building: default.size.stdout
- 
-22:01:14 **** Incremental Build of configuration Debug for project Practica2 ****
+23:30:01 **** Incremental Build of configuration Debug for project Practica2 ****
 make -j4 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
 arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -28,7 +21,77 @@ Finished building target: Practica2.elf
 arm-none-eabi-size  Practica2.elf 
 arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
    text	   data	    bss	    dec	    hex	filename
-   6672	     40	   1584	   8296	   2068	Practica2.elf
+   6812	     56	   1608	   8476	   211c	Practica2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica2.list
+ 
+23:30:49 **** Incremental Build of configuration Debug for project Practica2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica2.elf
+ 
+arm-none-eabi-size  Practica2.elf 
+arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6728	     56	   1608	   8392	   20c8	Practica2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica2.list
+ 
+23:46:34 **** Incremental Build of configuration Debug for project Practica2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica2.elf
+ 
+arm-none-eabi-size  Practica2.elf 
+arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6872	     84	   1612	   8568	   2178	Practica2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica2.list
+ 
+23:50:11 **** Incremental Build of configuration Debug for project Practica2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica2.elf
+ 
+arm-none-eabi-size  Practica2.elf 
+arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6872	     84	   1612	   8568	   2178	Practica2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica2.list
+ 
+00:00:11 **** Incremental Build of configuration Debug for project Practica2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica2.elf
+ 
+arm-none-eabi-size  Practica2.elf 
+arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6872	     84	   1612	   8568	   2178	Practica2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica2.list
+ 
+00:07:40 **** Incremental Build of configuration Debug for project Practica2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Practica2.elf
+ 
+arm-none-eabi-size  Practica2.elf 
+arm-none-eabi-objdump -h -S Practica2.elf  > "Practica2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6884	     84	   1612	   8580	   2184	Practica2.elf
 Finished building: default.size.stdout
  
 Finished building: Practica2.list
