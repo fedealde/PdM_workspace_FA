@@ -34,7 +34,7 @@
 
 /*General definitions like LED array, durations, delay structures and size*/
 Led_TypeDef LED_array[] = { LED1, LED2, LED3 };
-tick_t LED_duration[] = { 1000, 100, 100 };
+tick_t LED_duration[] = { 1000, 100, 100 }; //LO UTILIZA COMO DEFAULT
 size_t LED_size = sizeof(LED_array) / sizeof(Led_TypeDef);
 delay_t LED_delay[LED_DELAY_QUANTITY];
 
@@ -49,23 +49,18 @@ uint8_t count = 0, LED_patt_LEDone_index = 0;
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 
-void delayInit(delay_t *delay, tick_t duration);
-bool_t delayRead(delay_t *delay);
-void delayWrite(delay_t *delay, tick_t duration);
-
 /* Private functions ---------------------------------------------------------*/
 
 /*Recibe el puntero a la estructura delay correspondiente para ser inicializada, junto a la
  * duración deseada. No retorna nada*/
 void delayInit(delay_t *delay, tick_t duration) {
 
-	if (delay != NULL) {
+	if (delay == NULL || duration == 0)
+		Error_Handler();
 
-		delay->startTime = 0;
-		delay->duration = duration;
-		delay->running = false;
-
-	}
+	delay->startTime = 0;
+	delay->duration = duration;
+	delay->running = false;
 
 }
 
@@ -74,21 +69,20 @@ void delayInit(delay_t *delay, tick_t duration) {
  * true si cumplió el tiempo o false si aún no*/
 bool_t delayRead(delay_t *delay) {
 
-	if (delay != NULL) {
-		/*Inicializa si este aún no lo estaba*/
-		if (delay->running == false) {
+	if (delay == NULL)
+		Error_Handler();
+	/*Inicializa si este aún no lo estaba*/
+	if (delay->running == false) {
 
-			delay->startTime = HAL_GetTick();
-			delay->running = true;
-			return false;
+		delay->startTime = HAL_GetTick();
+		delay->running = true;
+		return false;
 
-		} else {
-			/*Verifica si se cumplio el tiempo*/
-			if ((HAL_GetTick() - delay->startTime) >= delay->duration) {
-				delay->running = false;
-				return true;
-			}
-
+	} else {
+		/*Verifica si se cumplio el tiempo*/
+		if ((HAL_GetTick() - delay->startTime) >= delay->duration) {
+			delay->running = false;
+			return true;
 		}
 
 	}
@@ -101,11 +95,11 @@ bool_t delayRead(delay_t *delay) {
  * el valor de la duración. No retorna nada.*/
 void delayWrite(delay_t *delay, tick_t duration) {
 
-	if (delay != NULL) {
+	if (delay == NULL || duration == 0)
+		Error_Handler();
 
-		delay->duration = duration;
+	delay->duration = duration;
 
-	}
 }
 
 /**
