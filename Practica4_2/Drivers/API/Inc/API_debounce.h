@@ -1,0 +1,22 @@
+/*
+ * API_debounce.h
+ *
+ *  Created on: Mar 24, 2024
+ *      Author: flealu
+ */
+
+#ifndef API_INC_API_DEBOUNCE_H_
+#define API_INC_API_DEBOUNCE_H_
+
+#include "API_delay.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_nucleo_144.h"
+
+void debounceFSM_init(void);	// debe cargar el estado inicial
+void debounceFSM_update(void);	// debe leer las entradas, resolver la lógica de
+// transición de estados y actualizar las salidas
+bool_t readKey(void); //It returns the state y the button was pressed
+
+#endif /* API_INC_API_DEBOUNCE_H_ */

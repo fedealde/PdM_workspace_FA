@@ -20,7 +20,7 @@
 
 /*General definitions like LED, delay structures, stateFSM*/
 delay_t debounce_delay;
-Led_TypeDef led = LED_GREEN;
+const Led_TypeDef led = LED_GREEN;
 static debounceState_t debouce_state;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,7 +61,7 @@ int main(void) {
 	/* Infinite loop */
 	while (1) {
 
-		debounceFSM_update();// The FSM is updated
+		debounceFSM_update(); // The FSM is updated
 
 	}
 
@@ -146,13 +146,13 @@ void debounceFSM_update(void) {
 
 }
 
-void buttonPressed(void) {// LED ON
+void buttonPressed(void) { // LED ON
 
 	BSP_LED_On(led);
 
 }
 
-void buttonReleased(void) {//LED OFF
+void buttonReleased(void) { //LED OFF
 
 	BSP_LED_Off(led);
 
