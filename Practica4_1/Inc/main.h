@@ -1,0 +1,59 @@
+/**
+ ******************************************************************************
+ * @file    Practica4_1/Src/main.c
+ * @author  Federico Alderisi
+ * @brief   This program was made for CESE, PdM, Practica4_1
+ ******************************************************************************
+ */
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __MAIN_H
+#define __MAIN_H
+
+/* Includes ------------------------------------------------------------------*/
+
+#include "stm32f4xx_hal.h"  		/* <- HAL include */
+#include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
+
+
+
+/* Exported types ------------------------------------------------------------*/
+//Defino los estados
+typedef enum{
+BUTTON_UP,
+BUTTON_FALLING,
+BUTTON_DOWN,
+BUTTON_RAISING,
+} debounceState_t;
+
+/* Exported constants --------------------------------------------------------*/
+/* User can use this section to tailor USARTx/UARTx instance used and associated
+   resources */
+/* Definition for USARTx clock resources */
+#define USARTx                           USART3
+#define USARTx_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE();
+#define USARTx_RX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOD_CLK_ENABLE()
+#define USARTx_TX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOD_CLK_ENABLE()
+
+#define USARTx_FORCE_RESET()             __HAL_RCC_USART3_FORCE_RESET()
+#define USARTx_RELEASE_RESET()           __HAL_RCC_USART3_RELEASE_RESET()
+
+/* Definition for USARTx Pins */
+#define USARTx_TX_PIN                    GPIO_PIN_8
+#define USARTx_TX_GPIO_PORT              GPIOD
+#define USARTx_TX_AF                     GPIO_AF7_USART3
+#define USARTx_RX_PIN                    GPIO_PIN_9
+#define USARTx_RX_GPIO_PORT              GPIOD
+#define USARTx_RX_AF                     GPIO_AF7_USART3
+
+/* Exported macro ------------------------------------------------------------*/
+/* Exported functions ------------------------------------------------------- */
+void debounceFSM_init(void);	// debe cargar el estado inicial
+void debounceFSM_update(void);	// debe leer las entradas, resolver la lógica de
+								// transición de estados y actualizar las salidas
+
+void buttonPressed(void);		// debe encender el LED
+void buttonReleased(void);		// debe apagar el LED
+
+#endif /* __MAIN_H */
+
