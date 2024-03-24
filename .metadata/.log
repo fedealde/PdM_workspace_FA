@@ -5481,3 +5481,6 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-23 19:29:07.684
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-23 19:34:15.494
+!MESSAGE Indexed 'Practica4_1' (100 sources, 207 headers) in 16.9 sec: 29,686 declarations; 90,626 references; 8 unresolved inclusions; 1,836 syntax errors; 1,834 unresolved names (1.5%)

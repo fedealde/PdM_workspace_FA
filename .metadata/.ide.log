@@ -442,3 +442,9 @@
 2024-03-24 00:36:34,914 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Mar 24, 2024 12:36:34 AM java.util.prefs.FileSystemPreferences syncWorld
 2024-03-24 00:36:34,915 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
 2024-03-24 00:36:34,915 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-03-24 00:37:04,911 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Mar 24, 2024 12:37:04 AM java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+2024-03-24 00:37:04,912 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Could not lock System prefs. Unix error code 5.
+2024-03-24 00:37:04,913 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-03-24 00:37:04,914 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Mar 24, 2024 12:37:04 AM java.util.prefs.FileSystemPreferences syncWorld
+2024-03-24 00:37:04,914 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] WARNING: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+2024-03-24 00:37:04,915 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
