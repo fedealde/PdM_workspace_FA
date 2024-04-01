@@ -17,6 +17,7 @@
 /* Private define ------------------------------------------------------------*/
 #define TIME_BUTTON1 100
 #define TIME_BUTTON2 500
+#define RX_BUFFER_SIZE 20
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -27,6 +28,9 @@ const Led_TypeDef led = LED_GREEN;
 tick_t def_tiem = TIME_BUTTON1;
 delay_t led_delay =
 		{ .startTime = 0, .duration = TIME_BUTTON1, .running = false };
+//definitions for receiving code
+uint8_t stringRecived [RX_BUFFER_SIZE] = {0};
+const uint16_t sizeRecived = RX_BUFFER_SIZE;
 
 /* Private function prototypes -----------------------------------------------*/
 
@@ -63,7 +67,10 @@ int main(void) {
 	uartInit();
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 	debounceFSM_init();
+
 	uartSendString((uint8_t *) "\nWHILE BEGINING\n\0");
+
+
 	/* Infinite loop */
 	while (1) {
 
@@ -87,11 +94,30 @@ int main(void) {
 
 		}
 
-		if(readFallingEdge()){uartSendString((uint8_t*)"Falling Edge Detected\n");}
+		//it checks if there where a rising or fallin edge and notify through uart
+		if(readFallingEdge()){uartSendString((uint8_t*)"Falling Edge Detected\n\0");}
 
-		if(readRisingEdge()){uartSendString((uint8_t*)"Rising Edge Detected\n");}
+		if(readRisingEdge()){uartSendString((uint8_t*)"Rising Edge Detected\n\0");}
 
 
+
+		//----------------RECIVE CODE EXAMPLE - LOOPBACK---------------
+
+		uartReceiveStringSize(stringRecived, sizeRecived);//it receive msg from uart's computer
+
+		if(stringRecived[0] != 0){ //to print only if there is something different to NULL (0)
+
+			uartSendString((uint8_t *) "LookBack : \0");
+			uartSendString(stringRecived); //print again from stm to computer until NULL is found
+			uartSendString((uint8_t *) "\n\0");
+
+			for(uint8_t i = 0; i < sizeRecived; i++) stringRecived[i] = 0; //ensure to have NULL, to "clean" the buffer
+
+		}
+
+		//To send msg from CuteCom fluently, input should be ASCII with "None" in box "command end line", delay = 0 ms
+
+		//----------------RECIVE CODE EXAMPLE - LOOPBACK---------------
 
 
 	}
@@ -149,7 +175,7 @@ static void SystemClock_Config(void) {
  */
 static void Error_Handler(void) {
 	/* Turn LED2 on */
-	BSP_LED_On(LED2);
+	BSP_LED_On(LED_RED);
 	while (1) {
 	}
 }

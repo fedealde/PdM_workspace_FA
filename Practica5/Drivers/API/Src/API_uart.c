@@ -12,14 +12,15 @@
 
 #define CHARACTER_SIZE 1
 #define TIMEOUT_UART 10
+#define BASE 10
 #define BUFFER_SIZE 20
 
 static UART_HandleTypeDef UartHandle;
 static void Error_Handler(void);
 
-bool uartInit(void){
+bool uartInit(void) {
 
-	char BUFFER [BUFFER_SIZE];
+	char BUFFER[BUFFER_SIZE];
 
 	UartHandle.Instance = USARTx;
 
@@ -31,7 +32,7 @@ bool uartInit(void){
 	UartHandle.Init.Mode = UART_MODE_TX_RX;
 	UartHandle.Init.OverSampling = UART_OVERSAMPLING_16;
 
-	if (HAL_UART_Init(&UartHandle) != HAL_OK){
+	if (HAL_UART_Init(&UartHandle) != HAL_OK) {
 
 		Error_Handler();
 
@@ -39,41 +40,39 @@ bool uartInit(void){
 
 	}
 
-	uartSendString((uint8_t *) "__________________\n\0");
-	uartSendString((uint8_t *) "\nUART CONFIGURATION: \0");
-	uartSendString((uint8_t *) "\n#BaudRate: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.BaudRate, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#WordLength: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.WordLength, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#StopBits: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.StopBits, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#Parity: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.Parity, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#HwFlowCtl: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.HwFlowCtl, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#Mode: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.Mode, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n#OverSampling: \0");
-	uartSendString((uint8_t*) itoa(UartHandle.Init.OverSampling, BUFFER, TIMEOUT_UART));
-	uartSendString((uint8_t *) "\n__________________\n");
+
+	//print uart information
+	uartSendString((uint8_t*) "\n__________________\n\0");
+	uartSendString((uint8_t*) "\nUART CONFIGURATION: \0");
+	uartSendString((uint8_t*) "\n#BaudRate: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.BaudRate, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#WordLength: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.WordLength, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#StopBits: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.StopBits, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#Parity: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.Parity, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#HwFlowCtl: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.HwFlowCtl, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#Mode: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.Mode, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n#OverSampling: \0");
+	uartSendString((uint8_t*) itoa(UartHandle.Init.OverSampling, BUFFER, BASE));
+	uartSendString((uint8_t*) "\n__________________\n");
 
 	return true;
 
-
 }
 
+void uartSendString(uint8_t *pstring) {
 
-
-void uartSendString(uint8_t * pstring){
-
-	if(pstring != NULL)
-	{
-	while(*pstring != '\0')
-	{
-		HAL_UART_Transmit(&UartHandle, pstring, CHARACTER_SIZE, TIMEOUT_UART);
-		pstring++;
-	}
-	}else{
+	if (pstring != NULL) {
+		while (*pstring != '\0') {
+			HAL_UART_Transmit(&UartHandle, pstring, CHARACTER_SIZE,
+					TIMEOUT_UART);
+			pstring++;
+		}
+	} else {
 
 		Error_Handler();
 
@@ -81,54 +80,36 @@ void uartSendString(uint8_t * pstring){
 
 }
 
+void uartSendStringSize(uint8_t *pstring, uint16_t size) {
 
+	if (pstring != NULL) {
 
+		if (HAL_UART_Transmit(&UartHandle, pstring, size, TIMEOUT_UART)
+				!= HAL_OK) {
 
-void uartSendStringSize(uint8_t * pstring, uint16_t size){
-
-
-	if(pstring != NULL)
-	{
-
-		if(HAL_UART_Transmit(&UartHandle, pstring, size, TIMEOUT_UART) != HAL_OK){
-
-		Error_Handler();
+			Error_Handler();
 
 		}
 
-	}else {
+	} else {
 
 		Error_Handler();
 	}
 
+}
+
+void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
+
+	HAL_UART_Receive(&UartHandle, pstring, size, TIMEOUT_UART);
 
 }
 
-
-
-
-
-
-void uartReceiveStringSize(uint8_t * pstring, uint16_t size){
-
-
-	if(HAL_UART_Receive(&UartHandle, pstring, size, TIMEOUT_UART) != HAL_OK){
-
-		Error_Handler();
-
-	}
-
-
-}
-
-
-static void Error_Handler(void){
+//static error handler
+static void Error_Handler(void) {
 
 	BSP_LED_On(LED_RED);
-	while(1);
+	while (1)
+		;
 
 }
-
-
-
 

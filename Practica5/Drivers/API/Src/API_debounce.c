@@ -9,7 +9,15 @@
 
 #define DEBOUNCE_DELAY 40
 
+/**
+ * @brief Set the rising variable to be read from outside
+ *
+ */
 static void setRisingEdge (void);
+/**
+ * @brief Set the falling variable to be read from outside
+ *
+ */
 static void setFallingEdge (void);
 
 //Debounce states for the FSM
@@ -23,10 +31,11 @@ static delay_t debounce_delay = { .startTime = 0, .duration = DEBOUNCE_DELAY,
 		.running = false };
 static debounceState_t debouce_state = BUTTON_UP;
 
+//status variables
 static bool_t statusFallingEdge;
 static bool_t statusRisingEdge;
 
-bool_t readKey(void) { // this funktion will return the last button state
+bool_t readKey(void) { // this function will return the last button state
 
 	if (button_state) {
 		button_state = false; //To reset the state. it is taken just the real change or value one time
@@ -144,6 +153,7 @@ bool_t readFallingEdge (void){
 
 }
 
+
 static void setRisingEdge (void){
 
 		statusRisingEdge = true;
@@ -158,8 +168,8 @@ static void setFallingEdge (void){
 
 
 static void Error_Handler(void) {
-	/* Turn LED2 on */
-	BSP_LED_On(LED2);
+	/* Turn LED_RED on */
+	BSP_LED_On(LED_RED);
 	while (1) {
 	}
 }
