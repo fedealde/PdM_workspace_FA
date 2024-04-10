@@ -17,6 +17,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/media/flealu/Priv/CESE/1er Bimestre/Protocolos de Comunicaciones/reloj_con_rtc_interno_lcd"/>
 			<item value="/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica1"/>
 			<item value="/home/flealu/Documents/GitHub/PdM_workspace_FA"/>
 		</list>
@@ -26,7 +27,7 @@
 	<section name="BasicNewProjectResourceWizard">
 	</section>
 	<section name="CleanDialogSettings">
-		<item key="BUILD_NOW" value="true"/>
+		<item key="BUILD_NOW" value="false"/>
 		<item key="BUILD_ALL" value="false"/>
 		<item key="TOGGLE_SELECTED" value="true"/>
 		<item key="DIALOG_WIDTH" value="569"/>

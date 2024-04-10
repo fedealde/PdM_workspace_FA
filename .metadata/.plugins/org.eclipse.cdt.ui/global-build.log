@@ -1,22 +1,14 @@
-01:01:29 **** Incremental Build of configuration Debug for project Practica5 ****
+01:04:06 **** Incremental Build of configuration Debug for project TP_Final_Dosificador ****
 make -j4 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/Core/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Drivers/API/Src/API_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/Core/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_uart.d" -MT"Drivers/API/Src/API_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_uart.o"
-arm-none-eabi-gcc -o "Practica5.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica5/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica5.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Practica5.elf
+arm-none-eabi-gcc "../Drivers/API/Src/API_LCD_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/CMSIS/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/Core/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/Drivers/API/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_LCD_port.d" -MT"Drivers/API/Src/API_LCD_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_LCD_port.o"
+arm-none-eabi-gcc -o "TP_Final_Dosificador.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TP_Final_Dosificador/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP_Final_Dosificador.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TP_Final_Dosificador.elf
  
-arm-none-eabi-size  Practica5.elf 
-arm-none-eabi-objdump -h -S Practica5.elf  > "Practica5.list"
+arm-none-eabi-size  TP_Final_Dosificador.elf 
+arm-none-eabi-objdump -h -S TP_Final_Dosificador.elf  > "TP_Final_Dosificador.list"
    text	   data	    bss	    dec	    hex	filename
-  10472	     64	   1640	  12176	   2f90	Practica5.elf
+  10932	     64	   1664	  12660	   3174	TP_Final_Dosificador.elf
 Finished building: default.size.stdout
  
-Finished building: Practica5.list
- 
-01:01:44 **** Incremental Build of configuration Debug for project Practica5 ****
-make -j4 all 
-arm-none-eabi-size  Practica5.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10472	     64	   1640	  12176	   2f90	Practica5.elf
-Finished building: default.size.stdout
+Finished building: TP_Final_Dosificador.list
  

@@ -354,12 +354,12 @@ Disassembly of section .text:
  80004e6:	bf00      	nop
 
 080004e8 <readKey>:
-static debounceState_t debouce_state = BUTTON_UP;
 
+//status variables
 static bool_t statusFallingEdge;
 static bool_t statusRisingEdge;
 
-bool_t readKey(void) { // this funktion will return the last button state
+bool_t readKey(void) { // this function will return the last button state
  80004e8:	b480      	push	{r7}
  80004ea:	af00      	add	r7, sp, #0
 
@@ -650,6 +650,7 @@ bool_t readFallingEdge (void){
 
 08000668 <setRisingEdge>:
 
+
 static void setRisingEdge (void){
  8000668:	b480      	push	{r7}
  800066a:	af00      	add	r7, sp, #0
@@ -690,7 +691,7 @@ static void setFallingEdge (void){
 static void Error_Handler(void) {
  8000698:	b580      	push	{r7, lr}
  800069a:	af00      	add	r7, sp, #0
-	/* Turn LED2 on */
+	/* Turn LED_RED on */
 	BSP_LED_On(LED_RED);
  800069c:	2002      	movs	r0, #2
  800069e:	f000 f99f 	bl	80009e0 <BSP_LED_On>
@@ -919,6 +920,8 @@ bool uartInit(void) {
 
 	}
 
+
+	//print uart information
 	uartSendString((uint8_t*) "\n__________________\n\0");
  80007b6:	483d      	ldr	r0, [pc, #244]	; (80008ac <uartInit+0x144>)
  80007b8:	f000 f88c 	bl	80008d4 <uartSendString>
@@ -1115,8 +1118,6 @@ void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
  8000922:	4803      	ldr	r0, [pc, #12]	; (8000930 <uartReceiveStringSize+0x20>)
  8000924:	f001 faf7 	bl	8001f16 <HAL_UART_Receive>
 
-
-
 }
  8000928:	bf00      	nop
  800092a:	3708      	adds	r7, #8
@@ -1126,6 +1127,7 @@ void uartReceiveStringSize(uint8_t *pstring, uint16_t size) {
 
 08000934 <Error_Handler>:
 
+//static error handler
 static void Error_Handler(void) {
  8000934:	b580      	push	{r7, lr}
  8000936:	af00      	add	r7, sp, #0
@@ -5885,9 +5887,12 @@ int main(void) {
  800264a:	f7fe f9fd 	bl	8000a48 <BSP_PB_Init>
 	debounceFSM_init();
  800264e:	f7fd ffcf 	bl	80005f0 <debounceFSM_init>
+
 	uartSendString((uint8_t *) "\nWHILE BEGINING\n\0");
  8002652:	482c      	ldr	r0, [pc, #176]	; (8002704 <main+0xe4>)
  8002654:	f7fe f93e 	bl	80008d4 <uartSendString>
+
+
 	/* Infinite loop */
 	while (1) {
 
@@ -5935,6 +5940,7 @@ int main(void) {
 
 		}
 
+		//it checks if there where a rising or fallin edge and notify through uart
 		if(readFallingEdge()){uartSendString((uint8_t*)"Falling Edge Detected\n\0");}
  8002696:	f7fd ffd1 	bl	800063c <readFallingEdge>
  800269a:	4603      	mov	r3, r0
