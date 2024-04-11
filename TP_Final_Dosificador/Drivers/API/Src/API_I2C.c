@@ -19,7 +19,7 @@ bool I2C1Init(void){
 	/*Handler is filled with standard configuration*/
 	hi2c1.Instance = I2C1;
 
-	hi2c1.Init.ClockSpeed = 100000;
+	hi2c1.Init.ClockSpeed = 10000;
 	hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
 	hi2c1.Init.OwnAddress1 = 0;
 	hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;

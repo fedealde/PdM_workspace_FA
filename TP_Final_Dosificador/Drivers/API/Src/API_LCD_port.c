@@ -18,7 +18,7 @@ bool LCDPortInit (void)
 
 bool LCDPortSendByte(uint8_t data){
 
-if(HAL_I2C_Master_Transmit(&hi2c1,LCD_ADD_SHIFTED,&data,sizeof(data),LCD_SEND_DELAY) != HAL_OK){
+if(HAL_I2C_Master_Transmit(&hi2c1,LCD_ADD_SHIFTED,&data,sizeof(data),LCD_SEND_DELAY_10MS) != HAL_OK){
 	return false;
 }
 

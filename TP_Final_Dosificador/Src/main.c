@@ -13,6 +13,7 @@
 #include "API_uart.h"
 
 
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define TIME_BUTTON1 100
@@ -62,19 +63,26 @@ int main(void) {
 
 	/* Initialize BSP for LED, BUTTON_USER; delay and FSM */
 
+	BSP_LED_Init(LED_BLUE);
+	BSP_LED_Init(LED_RED);
+	BSP_LED_Init(LED_GREEN);
+/*
 	delayInit(&led_delay, def_tiem);
-	BSP_LED_Init(led);
+
 	uartInit();
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 	debounceFSM_init();
 
 	uartSendString((uint8_t *) "\nWHILE BEGINING\n\0");
+*/
+
+	if(LCDInit()!=true){BSP_LED_On(LED_RED);}
 
 
 	/* Infinite loop */
 	while (1) {
 
-		debounceFSM_update(); // The FSM is updated
+/*		debounceFSM_update(); // The FSM is updated
 
 		if (readKey()) {	//The blinking time is replased by the oposite
 
@@ -119,8 +127,15 @@ int main(void) {
 
 		//----------------RECIVE CODE EXAMPLE - LOOPBACK---------------
 
+*/
+
+
+
 
 	}
+
+
+
 
 }
 

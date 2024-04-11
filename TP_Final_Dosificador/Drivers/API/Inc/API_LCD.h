@@ -5,10 +5,12 @@
  *      Author: flealu
  */
 
+
+
 #ifndef API_INC_API_LCD_H_
 #define API_INC_API_LCD_H_
 
-#include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 
@@ -25,7 +27,7 @@
 #define LCD_INI_CMD_1 0x30
 #define LCD_INI_CMD_2 0x20
 
-
+//Delays for LCD
 #define LCD_SEND_DELAY_20MS 20
 #define LCD_SEND_DELAY_2MS  2
 #define LCD_SEND_DELAY_1MS  1
@@ -51,25 +53,104 @@
 #define HIGH_NIBBLE 0xf0
 #define LOW_NIBBLE_TO_HIGH 0x04
 
-
+/**
+ * @brief It Initializes and sets LCD
+ *
+ * @return true if ok, or false in case of error
+ */
 bool LCDInit(void);
 
+// ///////////////////////////////////////
+/**
+ * @brief It sends a string to the LCD until /0
+ *
+ * @param text as a string
+ */
 void LCDSendString (uint8_t *text);
+
+/**
+ * @brief It send general data to LCD
+ *
+ * @param data just a character
+ */
 void LCDSendData (uint8_t data);
+
+/**
+ * @brief It sends data but with offset as ASCII data (+'0') to LCD
+ *
+ * @param ASCIIdata just a character
+ */
 void LCDSendASCII (uint8_t ASCIIdata);
-void LCDSendBDC (uint8_t BDCdata);
 
+/**
+ * @brief It sends BDC data to LCD - Its like sending the binary as a nibble
+ *
+ * @param BDCdata just a character
+ */
+void LCDSendBDC (uint8_t BDCdata); //To represent 12 its 0001 0010 BDC, so we send 18 INT
+// ///////////////////////////////////////
+
+// ///////////////////////////////////////
+/**
+ * @brief It clears LCD
+ *
+ */
 void LCDClear(void);
-void LCDHome(void);
-void LCDDisplayOn(void);
-void LCDDisplayOff(void);
 
+/**
+ * @brief It positions the cursor at zero point position
+ *
+ */
+void LCDHome(void);
+// ///////////////////////////////////////
+
+// ///////////////////////////////////////
+/**
+ * @brief It turns on the display
+ *
+ */
+void LCDDisplayOn(void);
+
+/**
+ * @brief It turns off the display
+ *
+ */
+void LCDDisplayOff(void);
+// ///////////////////////////////////////
+
+
+/**
+ * @brief It positions the cursor at "position" in "row"
+ *
+ * @param positon
+ * @param row
+ */
 void LCDPosition(uint8_t positon, uint8_t row);
 
+
+// ///////////////////////////////////////
+/**
+ * @brief It turns off the cursor
+ *
+ */
 void LCDCursorOff(void);
+/**
+ * @brief It turns on the cursor
+ *
+ */
 void LCDCursorOn(void);
 
+// ///////////////////////////////////////
+/**
+ * @brief It turns off the blinking character
+ *
+ */
 void LCDBlinkOff(void);
+
+/**
+ * @brief It turns of the blinking character
+ *
+ */
 void LCDBlinkOn(void);
 
 
