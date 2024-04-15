@@ -11,7 +11,7 @@ static void ADCErrorHandler(void);
 
 ADC_HandleTypeDef hadc1;
 
-void ADC1Init(void)
+ADC_HandleTypeDef* ADC1Init(void)
 {
 
 	ADC_ChannelConfTypeDef sConfig = { 0 };
@@ -44,10 +44,11 @@ void ADC1Init(void)
 		ADCErrorHandler();
 	}
 	/* USER CODE BEGIN ADC1_Init 2 */
-
+	return &hadc1;
 	/* USER CODE END ADC1_Init 2 */
 
 }
+
 
 
 static void ADCErrorHandler(void)

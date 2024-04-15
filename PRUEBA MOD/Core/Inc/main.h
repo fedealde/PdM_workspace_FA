@@ -34,10 +34,9 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "stm32f4xx_hal_adc.h"
 #include "API_LCD.h"
-#include "API_ADC.h"
-
+#include "API_Level_Sensor.h"
+#include "API_UART.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
