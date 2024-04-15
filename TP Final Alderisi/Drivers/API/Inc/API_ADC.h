@@ -14,7 +14,6 @@
 #include "stm32f4xx_hal_adc.h"
 
 
-void ADC1Init(void);
-
+ADC_HandleTypeDef* ADC1Init(void);
 
 #endif /* API_INC_API_ADC_H_ */

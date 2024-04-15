@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -41,9 +40,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-extern ADC_HandleTypeDef hadc1;
 
-UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
 
@@ -52,7 +49,6 @@ UART_HandleTypeDef huart3;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_USART3_UART_Init(void);
 
 /* USER CODE BEGIN PFP */
 
@@ -69,8 +65,8 @@ static void MX_USART3_UART_Init(void);
  */
 int main(void) {
 	/* USER CODE BEGIN 1 */
-	uint32_t raw;
-	uint16_t data;
+	uint8_t level;
+	uint32_t alarmlevel = 10;
 	char buffer[20] = { 0 };
 	/* USER CODE END 1 */
 
@@ -92,11 +88,13 @@ int main(void) {
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
-	MX_USART3_UART_Init();
-	ADC1Init();
 
+	if(LevelSensorInit() != true){Error_Handler();}
 	/* USER CODE BEGIN 2 */
+	if(UARTInit()!=true){Error_Handler();}
+	UARTSendString((uint8_t*)"ANDUVO LPM");
 	LCDInit();
+	LevelSensorSetAlarmLevel(alarmlevel);
 
 	/* USER CODE END 2 */
 
@@ -104,23 +102,57 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-		HAL_ADC_Start(&hadc1);
-		HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-		raw = HAL_ADC_GetValue(&hadc1);
-		HAL_Delay(500);
-		data = (uint16_t) raw/**100/4095*/;
-		LCDClear();
-		if (data > 2000) {
-			LCDHome();
-			LCDSendString((uint8_t*) "CARA DE TORTA FRITA");
-		} else {
-			LCDHome();
-			itoa(data, buffer, 10);
-			LCDSendString((uint8_t*) buffer);
-		}
+		switch (LevelSensorGetAlarmLevel()){
 
-		/* USER CODE BEGIN 3 */
-	}
+				case ALARM_ERROR: {
+
+				UARTSendString((uint8_t*)"FFFF\n");
+				break;
+
+				}
+
+				case ALARM_OFF: {
+
+				UARTSendString((uint8_t*)"TODO JOYA PA\n");
+				break;
+
+				}
+
+				case ALARM_ON: {
+
+				UARTSendString((uint8_t*)"CORRE MAQUINA\n");
+				break;
+
+				}
+
+				default: {
+
+				UARTSendString((uint8_t*)"FFFF de DEFAULT\n");
+				break;
+
+				}
+
+
+				}
+
+				LevelSensorGetCurrentLevel(&level);
+				HAL_Delay(500);
+				//data = (uint8_t) ( (float)raw * (float) 100 / (float) 4095);
+				LCDClear();
+				if (level > 50) {
+					LCDHome();
+					LCDSendString((uint8_t*) "CARA DE TORTA FRITA");
+					itoa(level, buffer, 10);
+				} else {
+					LCDHome();
+					itoa(level, buffer, 10);
+					LCDSendString((uint8_t*) buffer);
+				}
+
+				UARTSendString((uint8_t*)buffer);
+				UARTSendString((uint8_t*)"\n");
+				/* USER CODE BEGIN 3 */
+			}
 	/* USER CODE END 3 */
 }
 
@@ -164,38 +196,6 @@ void SystemClock_Config(void) {
 	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
 		Error_Handler();
 	}
-}
-
-
-/**
- * @brief USART3 Initialization Function
- * @param None
- * @retval None
- */
-static void MX_USART3_UART_Init(void) {
-
-	/* USER CODE BEGIN USART3_Init 0 */
-
-	/* USER CODE END USART3_Init 0 */
-
-	/* USER CODE BEGIN USART3_Init 1 */
-
-	/* USER CODE END USART3_Init 1 */
-	huart3.Instance = USART3;
-	huart3.Init.BaudRate = 115200;
-	huart3.Init.WordLength = UART_WORDLENGTH_8B;
-	huart3.Init.StopBits = UART_STOPBITS_1;
-	huart3.Init.Parity = UART_PARITY_NONE;
-	huart3.Init.Mode = UART_MODE_TX_RX;
-	huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart3.Init.OverSampling = UART_OVERSAMPLING_16;
-	if (HAL_UART_Init(&huart3) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN USART3_Init 2 */
-
-	/* USER CODE END USART3_Init 2 */
-
 }
 
 /**
