@@ -1,6 +1,0 @@
-../Src/main.c:56:6:delayInit	3
-../Src/main.c:70:8:delayRead	4
-../Src/main.c:96:6:delayWrite	3
-../Src/main.c:110:5:main	5
-../Src/main.c:186:13:SystemClock_Config	4
-../Src/main.c:235:13:Error_Handler	1

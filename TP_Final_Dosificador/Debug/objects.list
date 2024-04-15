@@ -1,3 +1,4 @@
+"./Drivers/API/Src/API_ADC.o"
 "./Drivers/API/Src/API_GPIO.o"
 "./Drivers/API/Src/API_I2C.o"
 "./Drivers/API/Src/API_Keypad.o"

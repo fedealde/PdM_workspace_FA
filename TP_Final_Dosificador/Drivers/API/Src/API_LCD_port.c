@@ -10,6 +10,9 @@
 
 extern I2C_HandleTypeDef hi2c1;
 
+
+
+
 bool LCDPortInit (void)
 {
 	return I2C1Init();

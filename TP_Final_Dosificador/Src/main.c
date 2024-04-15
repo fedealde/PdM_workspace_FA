@@ -11,6 +11,8 @@
 #include "API_delay.h"
 #include "API_debounce.h"
 #include "API_uart.h"
+#include "API_ADC.h"
+
 
 
 
@@ -19,7 +21,7 @@
 #define TIME_BUTTON1 100
 #define TIME_BUTTON2 500
 #define RX_BUFFER_SIZE 20
-
+#define NUM_SAMPLES 10 // Número de muestras para promediar
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
@@ -32,6 +34,13 @@ delay_t led_delay =
 //definitions for receiving code
 uint8_t stringRecived [RX_BUFFER_SIZE] = {0};
 const uint16_t sizeRecived = RX_BUFFER_SIZE;
+
+
+uint16_t adc_value; // Variable para almacenar el valor del ADC
+uint16_t adc_sum = 0; // Suma acumulada de las muestras
+uint16_t adc_average; // Promedio de las muestras
+
+ADC_HandleTypeDef hadc1 = {0};
 
 /* Private function prototypes -----------------------------------------------*/
 
@@ -57,7 +66,8 @@ int main(void) {
 	 - Low Level Initialization
 	 */
 	HAL_Init();
-
+	  __HAL_RCC_SYSCFG_CLK_ENABLE();
+	  __HAL_RCC_PWR_CLK_ENABLE();
 	/* Configure the system clock to 180 MHz */
 	SystemClock_Config();
 
@@ -76,7 +86,11 @@ int main(void) {
 	uartSendString((uint8_t *) "\nWHILE BEGINING\n\0");
 */
 
-	if(LCDInit()!=true){BSP_LED_On(LED_RED);}
+	ADC1_Init();
+	ADCGPIOInit(&hadc1);
+
+//	if(LCDInit()!=true){BSP_LED_On(LED_RED);}
+	uint32_t raw;
 
 
 	/* Infinite loop */
@@ -128,6 +142,11 @@ int main(void) {
 		//----------------RECIVE CODE EXAMPLE - LOOPBACK---------------
 
 */
+	    HAL_ADC_Start(&hadc1);
+	    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+	    raw = HAL_ADC_GetValue(&hadc1);
+	    HAL_Delay(100);
+
 
 
 
@@ -140,48 +159,43 @@ int main(void) {
 }
 
 static void SystemClock_Config(void) {
-	RCC_ClkInitTypeDef RCC_ClkInitStruct;
-	RCC_OscInitTypeDef RCC_OscInitStruct;
+	 RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+	  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-	/* Enable Power Control clock */
-	__HAL_RCC_PWR_CLK_ENABLE();
+	  /** Configure the main internal regulator output voltage
+	  */
+	  __HAL_RCC_PWR_CLK_ENABLE();
+	  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-	/* The voltage scaling allows optimizing the power consumption when the device is
-	 clocked below the maximum system frequency, to update the voltage scaling value
-	 regarding system frequency refer to product datasheet.  */
-	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+	  /** Initializes the RCC Oscillators according to the specified parameters
+	  * in the RCC_OscInitTypeDef structure.
+	  */
+	  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+	  RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
+	  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+	  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+	  RCC_OscInitStruct.PLL.PLLM = 4;
+	  RCC_OscInitStruct.PLL.PLLN = 168;
+	  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+	  RCC_OscInitStruct.PLL.PLLQ = 7;
+	  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
-	/* Enable HSE Oscillator and activate PLL with HSE as source */
-	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-	RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
-	RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-	RCC_OscInitStruct.PLL.PLLM = 8;
-	RCC_OscInitStruct.PLL.PLLN = 360;
-	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-	RCC_OscInitStruct.PLL.PLLQ = 7;
-	if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-		/* Initialization Error */
-		Error_Handler();
-	}
+	  /** Initializes the CPU, AHB and APB buses clocks
+	  */
+	  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+	                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+	  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+	  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+	  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-	if (HAL_PWREx_EnableOverDrive() != HAL_OK) {
-		/* Initialization Error */
-		Error_Handler();
-	}
-
-	/* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
-	 clocks dividers */
-	RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK
-			| RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-	RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-	RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
-	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK) {
-		/* Initialization Error */
-		Error_Handler();
-	}
+	  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 }
 /**
  * @brief  This function is executed in case of error occurrence.

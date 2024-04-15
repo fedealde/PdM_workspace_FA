@@ -7,3 +7,10 @@
 ../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:274:6:BSP_PB_Init	3
 ../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:311:6:BSP_PB_DeInit	1
 ../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:326:10:BSP_PB_GetState	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:692:13:ADCx_MspInit	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:715:13:ADCx_MspDeInit	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:734:13:ADCx_Init	2
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:758:13:ADCx_DeInit	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:773:9:BSP_JOY_Init	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:793:6:BSP_JOY_DeInit	1
+../Drivers/BSP/STM32F4xx_Nucleo_144/stm32f4xx_nucleo_144.c:810:18:BSP_JOY_GetState	13

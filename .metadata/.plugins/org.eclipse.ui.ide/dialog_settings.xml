@@ -17,6 +17,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/media/flealu/Priv/CESE/1er Bimestre/NucleoF429ZI docs/STM32Cube_FW_F4_V1.28.0/Projects/STM32F429ZI-Nucleo/Examples/ADC/ADC_RegularConversion_Interrupt"/>
+			<item value="/media/flealu/Priv/CESE/1er Bimestre/Proyecto Primer Bimestre/Desarrollo/Scratch"/>
 			<item value="/media/flealu/Priv/CESE/1er Bimestre/Protocolos de Comunicaciones/reloj_con_rtc_interno_lcd"/>
 			<item value="/home/flealu/Documents/GitHub/PdM_workspace_FA/Practica1"/>
 			<item value="/home/flealu/Documents/GitHub/PdM_workspace_FA"/>
@@ -33,5 +35,27 @@
 		<item key="DIALOG_WIDTH" value="569"/>
 		<item key="DIALOG_HEIGHT" value="476"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+	</section>
+	<section name="org.eclipse.text.quicksearch.internal.ui.QuickSearchDialog.DIALOG_SETTINGS">
+		<item key="LAST_QUERY" value="HAL_ADC_Start"/>
+		<item key="PATH_FILTER" value=""/>
+		<item key="CASE_SENSITIVE" value="true"/>
+		<item key="KEEP_OPEN" value="false"/>
+		<list key="COLUMN_WIDTHS">
+			<item value="40"/>
+			<item value="400"/>
+			<item value="128"/>
+		</list>
+		<list key="SASH_WEIGHTS">
+			<item value="714"/>
+			<item value="285"/>
+		</list>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="537"/>
+			<item key="DIALOG_Y_ORIGIN" value="143"/>
+			<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		</section>
 	</section>
 </section>
