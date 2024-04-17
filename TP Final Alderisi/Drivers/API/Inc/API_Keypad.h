@@ -12,8 +12,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+void KeypadInit(void);
 
 char KeypadScan(void);
+
+void KeypadDebounceFSMInit(void);
+
+char KeypadDebounceFSMUpdate(void);
+
+
 
 
 #endif /* API_INC_API_KEYPAD_H_ */

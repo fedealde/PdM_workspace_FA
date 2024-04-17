@@ -6,6 +6,8 @@
  */
 
 #include "API_Debounce.h"
+#include "API_Delay.h"
+#include "API_GPIO.h"
 
 static void DebounceErrorHandler(void);
 

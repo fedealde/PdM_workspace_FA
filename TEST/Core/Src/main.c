@@ -16,10 +16,6 @@
  */
 int main(void) {
 
-	char a = '\0';
-	uint8_t level;
-	char buffer[20] = { 0 };
-
 	HAL_Init();
 
 	SystemClockConfig();
@@ -39,24 +35,18 @@ int main(void) {
 	KeypadDebounceFSMInit();
 
 	LCDClear();
-
-	LCDPosition(2, 2);
-	LCDSendString((uint8_t*)"HOLA");
+	ScreenMain();
+	FSMInit();
 
 	while (1) {
 
-		a = KeypadDebounceFSMUpdate();
-		LCDHome();
-		if(a!='\0')LCDSendData(a);
 
-		LCDPosition(0, 3);
-		LevelSensorGetCurrentLevel(&level);
-		itoa(level, buffer, 10);
-		LCDSendString((uint8_t*) buffer);
-		UARTSendString((uint8_t*) buffer);
-		UARTSendString((uint8_t*) "\n");
-		for(uint8_t i=0; i<20; i++)
-		{buffer[i]=' ';}
+		FSMUpdate();
+
+
+
+
+
 	}
 
 }

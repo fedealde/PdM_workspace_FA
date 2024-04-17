@@ -199,7 +199,7 @@ void LCDDisplayOff(void){
 }
 
 void LCDPosition(uint8_t position, uint8_t row){
-	LCDSendControl(position + LCDRows[row-1]);
+	LCDSendControl((position) + LCDRows[row]);
 }
 
 void LCDCursorOff(void){

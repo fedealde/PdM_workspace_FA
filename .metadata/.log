@@ -12183,3 +12183,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2024-04-16 00:47:54.471
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+!SESSION 2024-04-16 21:00:45.383 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-16 21:00:56.019
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-16 21:00:56.020
+!MESSAGE Log4j2 initialized with config file /home/flealu/Documents/GitHub/PdM_workspace_FA/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-16 21:01:04.715
+!MESSAGE Started RMI Server, listening on port 41337

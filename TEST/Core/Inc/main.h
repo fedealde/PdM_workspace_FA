@@ -27,22 +27,8 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-#include "API_LCD.h"
-#include "API_Level_Sensor.h"
-#include "API_UART.h"
-#include "API_GPIO.h"
-#include "API_SystemClock.h"
-#include "API_Delay.h"
-#include "API_Debounce.h"
-#include "API_Keypad.h"
+#include "API_FSM.h"
 
 
 void Error_Handler(void);

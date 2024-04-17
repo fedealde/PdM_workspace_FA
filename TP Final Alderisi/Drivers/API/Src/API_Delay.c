@@ -1,5 +1,6 @@
 
 #include "API_Delay.h"
+#include "API_GPIO.h"
 
 /*Recibe el puntero a la estructura delay correspondiente para ser inicializada, junto a la
  * duración deseada. No retorna nada*/

@@ -34,6 +34,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "API_LCD.h"
 #include "API_Level_Sensor.h"

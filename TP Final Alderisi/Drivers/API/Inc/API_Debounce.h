@@ -8,11 +8,12 @@
 #ifndef API_INC_API_DEBOUNCE_H_
 #define API_INC_API_DEBOUNCE_H_
 
-#include "API_Delay.h"
+
 #include <stdint.h>
 #include <stdbool.h>
 #include "stm32f4xx_hal.h"
 
+typedef bool bool_t;
 
 void debounceFSM_init(void);	// debe cargar el estado inicial
 void debounceFSM_update(void);	// debe leer las entradas, resolver la lógica de
