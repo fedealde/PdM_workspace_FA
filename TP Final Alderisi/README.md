@@ -11,3 +11,17 @@ Consta de una FSM que permite la funcionalidad de ingreso de datos, verificacion
 Se desarrolló a través de una NUCLEO 429zi de STM32, utilizando STM32 CubeIDE.
 
 El proyecto se desarrolló utilizando MX solo para el código de ADC por lo que se debe desactivar la autogeneración de código, en caso de ser modificado.
+Prototipo:
+
+![Prototipo](https://github.com/fedealde/PdM_workspace_FA/assets/62813604/26d14371-2ef0-4478-850a-f56e7ffe8820)
+
+Source files
+![Sources](https://github.com/fedealde/PdM_workspace_FA/assets/62813604/1fffc322-ba3a-48cd-9a6d-e41747aca9e8)
+
+API Drivers
+![APIs Driver](https://github.com/fedealde/PdM_workspace_FA/assets/62813604/a8d00897-d41b-4e87-85eb-69b1ffa1fdeb)
+
+UART
+![Uart](https://github.com/fedealde/PdM_workspace_FA/assets/62813604/b0e59e98-a73d-4325-a6bb-f9aab5720114)
+
+
