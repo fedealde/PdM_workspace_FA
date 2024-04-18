@@ -426,7 +426,7 @@ void FSMUpdate(void) {
 			pumpState = 0;
 			PumpReset();
 		}
-		FSMStateRevert();
+		FSMStateRevert();//Ejecutamos FSMStateRevert() porque debemos volver al estado anterior ya que luego de cambiar el estado de la bomba, debemos continuar con la ejecucion normal en la que estabamos anteriormente.
 
 		break;
 
