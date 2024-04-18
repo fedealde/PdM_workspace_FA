@@ -97,7 +97,7 @@ void ScreenDosageAsk(void) {
 	LCDPosition(0, 2);
 	LCDSendString((uint8_t*) "  CONFIRMAR DOSIS?  ");
 	LCDPosition(0, 3);
-	LCDSendString((uint8_t*) "OK              BACK");
+	LCDSendString((uint8_t*) "SI            VOLVER");
 
 }
 
