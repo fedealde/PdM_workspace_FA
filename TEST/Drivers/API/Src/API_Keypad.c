@@ -15,32 +15,28 @@ static void KeypadDebounceErrorHandler(void);
 #define KEYPAD_DEB_DELAY 40
 
 extern const uint16_t COLS_PINS_ARRAY[];
-extern GPIO_TypeDef * COLS_PORTS_ARRAY[];
+extern GPIO_TypeDef *COLS_PORTS_ARRAY[];
 
 extern const uint16_t ROWS_PINS_ARRAY[];
-extern GPIO_TypeDef * ROWS_PORTS_ARRAY[];
+extern GPIO_TypeDef *ROWS_PORTS_ARRAY[];
 
-char KeypadChars[] = {
-'1', '2', '3', 'U',
-'4', '5', '6', 'K',
-'7', '8', '9', 'W',
-'P', '0', 'D', 'B',
-};
+const char KeypadChars[] = { '1', '2', '3', 'U', '4', '5', '6', 'K', '7', '8',
+		'9', 'W', 'P', '0', 'D', 'B', };
 
 typedef enum {
 	KEYPAD_SCAN, KEY_DETECTED, KEY_PRESSED, KEY_RELEASED,
 } KeypadDebounceState_t;
 
-static delay_t keypad_debounce_delay = { .startTime = 0, .duration = KEYPAD_DEB_DELAY,
-		.running = false };
+static delay_t keypad_debounce_delay = { .startTime = 0, .duration =
+		KEYPAD_DEB_DELAY, .running = false };
 
 static KeypadDebounceState_t keypad_debouce_state = KEYPAD_SCAN;
 
-void KeypadInit(void){
+void KeypadInit(void) {
 
 	KeypadPortGPIOInit();
 
-	for(uint8_t i=0; i<NUM_OF_ROWS; i++ ){
+	for (uint8_t i = 0; i < NUM_OF_ROWS; i++) {
 
 		KeypadPortPinWrite(ROWS_PORTS_ARRAY[i], ROWS_PINS_ARRAY[i], 0);
 
@@ -64,7 +60,8 @@ char KeypadScan(void) {
 
 		for (col = 0; col < NUM_OF_COLS; col++) {
 
-			if (KeypadPortPinRead(COLS_PORTS_ARRAY[col], COLS_PINS_ARRAY[col]) == OFF) {
+			if (KeypadPortPinRead(COLS_PORTS_ARRAY[col],
+					COLS_PINS_ARRAY[col]) == OFF) {
 				return KeypadChars[row * NUM_OF_ROWS + col];
 			}
 		}
@@ -73,7 +70,6 @@ char KeypadScan(void) {
 	return '\0';
 
 }
-
 
 char KeypadDebounceFSMUpdate(void) {
 
@@ -122,7 +118,7 @@ char KeypadDebounceFSMUpdate(void) {
 
 		if (key_detected != key_last_pressed) {
 
-			if(key_detected == '\0'){
+			if (key_detected == '\0') {
 
 				key_pressed = key_last_pressed;
 
@@ -131,8 +127,6 @@ char KeypadDebounceFSMUpdate(void) {
 			keypad_debouce_state = KEY_RELEASED;
 			delayRead(&keypad_debounce_delay);
 		}
-
-
 
 		break;
 
@@ -144,12 +138,11 @@ char KeypadDebounceFSMUpdate(void) {
 
 			if (key_detected == '\0') {
 
-
 				keypad_debouce_state = KEYPAD_SCAN;
 
 			} else {
 
-				if (key_detected == key_last_pressed){
+				if (key_detected == key_last_pressed) {
 
 					keypad_debouce_state = KEY_PRESSED;
 
@@ -178,14 +171,11 @@ char KeypadDebounceFSMUpdate(void) {
 
 }
 
-
-
 void KeypadDebounceFSMInit(void) { //initialize the FSM state
 
 	keypad_debouce_state = KEYPAD_SCAN;
 	delayInit(&keypad_debounce_delay, KEYPAD_DEB_DELAY);
 }
-
 
 static void KeypadDebounceErrorHandler(void) {
 	/* Turn LED_RED on */
@@ -193,5 +183,4 @@ static void KeypadDebounceErrorHandler(void) {
 	while (1) {
 	}
 }
-
 

@@ -9,7 +9,7 @@
 
 static void SYSCLKErrorHandler(void);
 
-void SystemClockConfig (void) {
+void SystemClockConfig(void) {
 	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
 	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
 
@@ -47,13 +47,11 @@ void SystemClockConfig (void) {
 	}
 }
 
-
-static void SYSCLKErrorHandler(void){
+static void SYSCLKErrorHandler(void) {
 
 	__disable_irq();
 	while (1) {
 	}
-
 
 }
 

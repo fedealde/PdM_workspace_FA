@@ -1,4 +1,3 @@
-
 #include "API_Delay.h"
 #include "API_GPIO.h"
 
@@ -55,8 +54,6 @@ void delayWrite(delay_t *delay, tick_t duration) {
 	delay->duration = duration;
 
 }
-
-
 
 static void DelayErrorHandler(void) {
 	/* Turn LED_RED on */

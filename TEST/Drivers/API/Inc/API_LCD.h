@@ -5,15 +5,11 @@
  *      Author: flealu
  */
 
-
-
 #ifndef API_INC_API_LCD_H_
 #define API_INC_API_LCD_H_
 
 #include <stdint.h>
 #include <stdbool.h>
-
-
 
 /**
  * @brief It Initializes and sets LCD
@@ -28,28 +24,28 @@ bool LCDInit(void);
  *
  * @param text as a string
  */
-void LCDSendString (uint8_t *text);
+void LCDSendString(uint8_t *text);
 
 /**
  * @brief It send general data to LCD
  *
  * @param data just a character
  */
-void LCDSendData (uint8_t data);
+void LCDSendData(uint8_t data);
 
 /**
  * @brief It sends data but with offset as ASCII data (+'0') to LCD
  *
  * @param ASCIIdata just a character
  */
-void LCDSendASCII (uint8_t ASCIIdata);
+void LCDSendASCII(uint8_t ASCIIdata);
 
 /**
  * @brief It sends BDC data to LCD - Its like sending the binary as a nibble
  *
  * @param BDCdata just a character
  */
-void LCDSendBDC (uint8_t BDCdata); //To represent 12 its 0001 0010 BDC, so we send 18 INT
+void LCDSendBDC(uint8_t BDCdata); //To represent 12 its 0001 0010 BDC, so we send 18 INT
 // ///////////////////////////////////////
 
 // ///////////////////////////////////////
@@ -80,7 +76,6 @@ void LCDDisplayOn(void);
 void LCDDisplayOff(void);
 // ///////////////////////////////////////
 
-
 /**
  * @brief It positions the cursor at "position" in "row"
  *
@@ -88,7 +83,6 @@ void LCDDisplayOff(void);
  * @param row
  */
 void LCDPosition(uint8_t positon, uint8_t row);
-
 
 // ///////////////////////////////////////
 /**
@@ -114,24 +108,5 @@ void LCDBlinkOff(void);
  *
  */
 void LCDBlinkOn(void);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif /* API_INC_API_LCD_H_ */

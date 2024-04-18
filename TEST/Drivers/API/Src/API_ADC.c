@@ -11,11 +11,9 @@ static void ADCErrorHandler(void);
 
 ADC_HandleTypeDef hadc1;
 
-ADC_HandleTypeDef* ADC1Init(void)
-{
+ADC_HandleTypeDef* ADC1Init(void) {
 
 	ADC_ChannelConfTypeDef sConfig = { 0 };
-
 
 	/** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
 	 */
@@ -49,16 +47,12 @@ ADC_HandleTypeDef* ADC1Init(void)
 
 }
 
+static void ADCErrorHandler(void) {
+	/* USER CODE BEGIN Error_Handler_Debug */
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1) {
 
-
-static void ADCErrorHandler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-
-  }
-  /* USER CODE END Error_Handler_Debug */
+	}
+	/* USER CODE END Error_Handler_Debug */
 }

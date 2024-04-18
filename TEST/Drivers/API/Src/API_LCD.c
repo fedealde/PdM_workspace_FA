@@ -39,7 +39,6 @@
 #define LCD_ROW_3 0x94
 #define LCD_ROW_4 0xD4
 
-
 //Defined by RS, but we separate into 2 macros
 #define LCD_CONTROL 0
 #define LCD_DATA 1
@@ -84,56 +83,58 @@
  *
  * @param controlData
  */
-static void LCDSendControl (uint8_t controlData);
+static void LCDSendControl(uint8_t controlData);
 /**
  * @brief It sends a Nibble (half byte) to LCD, because LCD is configured as 4bit mode
  *
  * @param nibbleToSend
  * @param type
  */
-static void LCDSendNibble (uint8_t nibbleToSend, bool type);
+static void LCDSendNibble(uint8_t nibbleToSend, bool type);
 /**
  * @brief It is used to send a byte, using LCDSendNibble twice
  *
  * @param byteToSend
  * @param type
  */
-static void LCDSendByte (uint8_t byteToSend, bool type);
+static void LCDSendByte(uint8_t byteToSend, bool type);
 
 // It is defined the setting commands to be executed, the init commands and their delays respectively
-static const uint8_t LCDSettingCommands [] = {LCD_4BIT_MODE, LCD_DISPLAY_CONTROL, LCD_RETURN_HOME,
-		(LCD_ENTRY_MODE + LCD_AUTO_INCREMENT), (LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON), LCD_CLEAR};
+static const uint8_t LCDSettingCommands[] = { LCD_4BIT_MODE,
+LCD_DISPLAY_CONTROL, LCD_RETURN_HOME, (LCD_ENTRY_MODE + LCD_AUTO_INCREMENT),
+		(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON),
+		LCD_CLEAR };
 
-static const uint8_t LCDInitCommands [] = {LCD_INI_CMD_1, LCD_INI_CMD_1, LCD_INI_CMD_1, LCD_INI_CMD_2};
+static const uint8_t LCDInitCommands[] = { LCD_INI_CMD_1, LCD_INI_CMD_1,
+LCD_INI_CMD_1, LCD_INI_CMD_2 };
 
-static const uint32_t LCDInitDelays [] = {LCD_SEND_DELAY_20MS, LCD_SEND_DELAY_10MS, LCD_SEND_DELAY_1MS, LCD_SEND_DELAY_10MS};
+static const uint32_t LCDInitDelays[] = { LCD_SEND_DELAY_20MS,
+LCD_SEND_DELAY_10MS, LCD_SEND_DELAY_1MS, LCD_SEND_DELAY_10MS };
 
-static const uint8_t LCDRows [] = {LCD_ROW_1,LCD_ROW_2,LCD_ROW_3,LCD_ROW_4};
+static const uint8_t LCDRows[] = { LCD_ROW_1, LCD_ROW_2, LCD_ROW_3, LCD_ROW_4 };
 
-static void LCDSendNibble (uint8_t nibbleToSend, bool type){
+static void LCDSendNibble(uint8_t nibbleToSend, bool type) {
 
-	LCDPortSendByte(nibbleToSend+type+LCD_EN+LCD_BL);
+	LCDPortSendByte(nibbleToSend + type + LCD_EN + LCD_BL);
 	LCDPortDelay(LCD_SEND_DELAY_1MS);
-	LCDPortSendByte(nibbleToSend+type+LCD_BL);
+	LCDPortSendByte(nibbleToSend + type + LCD_BL);
 	LCDPortDelay(LCD_SEND_DELAY_1MS);
 }
 
+static void LCDSendByte(uint8_t byteToSend, bool type) {
 
-
-static void LCDSendByte (uint8_t byteToSend, bool type){
-
-	LCDSendNibble(byteToSend&HIGH_NIBBLE, type);
-	LCDSendNibble(byteToSend<<LOW_NIBBLE_TO_HIGH, type);
+	LCDSendNibble(byteToSend & HIGH_NIBBLE, type);
+	LCDSendNibble(byteToSend << LOW_NIBBLE_TO_HIGH, type);
 
 }
 
+bool LCDInit(void) {
 
+	if (LCDPortInit() != true) {
+		LCDPortErrorHandler();
+	}
 
-bool LCDInit(void){
-
-	if(LCDPortInit() != true) {LCDPortErrorHandler();}
-
-	for(uint8_t i = 0; i < sizeof(LCDInitCommands); i++){
+	for (uint8_t i = 0; i < sizeof(LCDInitCommands); i++) {
 
 		LCDPortDelay(LCDInitDelays[i]);
 		LCDSendNibble(LCDInitCommands[i], LCD_CONTROL);
@@ -155,79 +156,66 @@ bool LCDInit(void){
 
 }
 
-
-
-static void LCDSendControl (uint8_t controlData){
+static void LCDSendControl(uint8_t controlData) {
 
 	LCDSendByte(controlData, LCD_CONTROL);
 
 }
 
-
-void LCDSendString (uint8_t *text){
-	while(*text)LCDSendData(*text++);
+void LCDSendString(uint8_t *text) {
+	while (*text)
+		LCDSendData(*text++);
 }
 
-void LCDSendData (uint8_t data){
+void LCDSendData(uint8_t data) {
 	LCDSendByte(data, LCD_DATA);
 }
 
-void LCDSendASCII (uint8_t ASCIIdata){
-	LCDSendData(ASCIIdata+'0');
+void LCDSendASCII(uint8_t ASCIIdata) {
+	LCDSendData(ASCIIdata + '0');
 }
 
-void LCDSendBDC (uint8_t BDCdata){
-	LCDSendASCII((BDCdata&0xf0) >> 4);
-	LCDSendASCII(BDCdata&0x0f);
+void LCDSendBDC(uint8_t BDCdata) {
+	LCDSendASCII((BDCdata & 0xf0) >> 4);
+	LCDSendASCII(BDCdata & 0x0f);
 }
 
-void LCDClear(void){
+void LCDClear(void) {
 	LCDSendControl(LCD_CLEAR);
 	LCDPortDelay(LCD_SEND_DELAY_2MS);
 }
 
-void LCDHome(void){
+void LCDHome(void) {
 	LCDSendControl(LCD_RETURN_HOME);
 }
 
-void LCDDisplayOn(void){
-	LCDSendControl(LCD_DISPLAY_CONTROL+LCD_DISPLAY_ON);
+void LCDDisplayOn(void) {
+	LCDSendControl(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON);
 }
 
-void LCDDisplayOff(void){
+void LCDDisplayOff(void) {
 	LCDSendControl(LCD_DISPLAY_CONTROL);
 }
 
-void LCDPosition(uint8_t position, uint8_t row){
+void LCDPosition(uint8_t position, uint8_t row) {
 	LCDSendControl((position) + LCDRows[row]);
 }
 
-void LCDCursorOff(void){
-	LCDSendControl(LCD_DISPLAY_CONTROL+LCD_DISPLAY_ON);
+void LCDCursorOff(void) {
+	LCDSendControl(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON);
 }
 
-void LCDCursorOn(void){
-	LCDSendControl(LCD_DISPLAY_CONTROL+LCD_DISPLAY_ON+LCD_CURSOR_ON);
+void LCDCursorOn(void) {
+	LCDSendControl(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON + LCD_CURSOR_ON);
 }
 
-void LCDBlinkOff(void){
-	LCDSendControl(LCD_DISPLAY_CONTROL+LCD_DISPLAY_ON);
+void LCDBlinkOff(void) {
+	LCDSendControl(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON);
 }
 
-void LCDBlinkOn(void){
-	LCDSendControl(LCD_DISPLAY_CONTROL+LCD_DISPLAY_ON+LCD_CURSOR_BLINK);
+void LCDBlinkOn(void) {
+	LCDSendControl(LCD_DISPLAY_CONTROL + LCD_DISPLAY_ON + LCD_CURSOR_BLINK);
 }
-
-
 
 //Podría implementarse una función distinta a la principal de enviar quitando BL para controlarlo independientemente
-
-
-
-
-
-
-
-
-
 

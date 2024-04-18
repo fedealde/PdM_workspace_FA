@@ -13,16 +13,11 @@
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_i2c.h"
 
-
 /**
  * @brief Initialize I2C1
  *
  * @return true if ok, or false in case of error
  */
 bool I2C1Init(void);
-
-
-
-
 
 #endif /* API_INC_API_I2C_H_ */

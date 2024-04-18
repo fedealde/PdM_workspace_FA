@@ -11,17 +11,25 @@
 #include "API_Level_Sensor_port.h"
 
 #define FILTER_SAMPLE_NUMBER 50
-#define ADC_SAMPLE 4096
+#define ADC_SAMPLE 4095
 #define PERCENTAGE 100
+#define ALARM_ACTIVATION_MAX_THRESHOLD 6
+#define ALARM_ACTIVATION_MIN_THRESHOLD 3
 
 typedef enum {
-	ALARM_ERROR = 0,
-	ALARM_ON = 1,
-	ALARM_OFF = 2
-} LevelSensorError;
+	ALARM_OFF = 0, ALARM_ON = 1, ALARM_ERROR = 2
+} LevelSensorError_t;
 
-void LevelSensorSetAlarmLevel (uint8_t level);
-LevelSensorError LevelSensorGetAlarmLevel (void);
-bool LevelSensorGetCurrentLevel(uint8_t* currentlevel);
+typedef enum {
+	PUMP_OFF = 0, PUMP_ON = 1,
+} PumpState_t;
+
+void LevelSensorSetAlarm(void);
+void LevelSensorResetAlarm(void);
+void LevelSensorToggleAlarm(void);
+LevelSensorError_t LevelSensorGetAlarmLevel(uint8_t threshold);
+bool LevelSensorGetCurrentLevel(uint8_t *currentlevel);
+void PumpSet(void);
+void PumpReset(void);
 
 #endif /* API_INC_API_LEVEL_SENSOR_H_ */

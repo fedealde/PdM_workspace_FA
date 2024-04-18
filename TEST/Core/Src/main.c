@@ -14,6 +14,7 @@
  * @brief  The application entry point.
  * @retval int
  */
+
 int main(void) {
 
 	HAL_Init();
@@ -40,12 +41,9 @@ int main(void) {
 
 	while (1) {
 
-
 		FSMUpdate();
 
-
-
-
+		AlarmUpdate();
 
 	}
 

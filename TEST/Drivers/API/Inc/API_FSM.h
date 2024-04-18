@@ -33,11 +33,9 @@ typedef enum {
 	DOSAGE_4,
 	DOSAGE_ASK,
 	DOSAGE_VERIF,
-	OK,
 	BACK,
 	PUMP
-}FSMState_t;
-
+} FSMState_t;
 
 void ScreenMain(void);
 void ScreenDosageAsk(void);
@@ -45,13 +43,19 @@ void ScreenDosageError(void);
 void ScreenUpdateDosage(void);
 void ScreenUpdatePump(void);
 void ScreenUpdateLevel(void);
-void ScreenMainInfUpdate (void);
+void ScreenMainInfUpdate(void);
+void ScreenDosageInfUpdate(FSMState_t fromDosageNumber);
 void FSMInit(void);
-void FSMStateNew (FSMState_t stateNew);
-void FSMStateRevert (void);
+void FSMStateNew(FSMState_t stateNew);
+void FSMStateRevert(void);
+bool FSMIsNumber(char keyIsNumber);
 void FSMUpdate(void);
+void AlarmUpdate(void);
 
-
-
+#define DOSAGE_CANT_CHAR 5
+#define ALARM_DELAY_DURATION 500
+#define ALARM_UART_MAX_DELAY_DURATION 5000
+#define ALARM_UART_MIN_DELAY_DURATION 2000
+#define LCD_WIDTH 20
 
 #endif /* API_INC_API_FSM_H_ */

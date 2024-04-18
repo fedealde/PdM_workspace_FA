@@ -7,12 +7,10 @@
 
 #include <API_UART.h>
 
-
-
 #define CHARACTER_SIZE 1
 #define TIMEOUT_UART 10
 #define BASE 10
-#define BUFFER_SIZE 20
+#define BUFFER_SIZE 50
 
 static UART_HandleTypeDef UARTHandle;
 static void UARTErrorHandler(void);
@@ -38,7 +36,6 @@ bool UARTInit(void) {
 		return false;
 
 	}
-
 
 	//print UART information
 	UARTSendString((uint8_t*) "\n__________________\n\0");
@@ -68,7 +65,7 @@ void UARTSendString(uint8_t *pstring) {
 	if (pstring != NULL) {
 		while (*pstring != '\0') {
 			HAL_UART_Transmit(&UARTHandle, pstring, CHARACTER_SIZE,
-					TIMEOUT_UART);
+			TIMEOUT_UART);
 			pstring++;
 		}
 	} else {
@@ -105,7 +102,6 @@ void UARTReceiveStringSize(uint8_t *pstring, uint16_t size) {
 
 //static error handler
 static void UARTErrorHandler(void) {
-
 
 	while (1)
 		;

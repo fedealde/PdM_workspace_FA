@@ -12,7 +12,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-
 //COLUMNS DEFINITIONS (READ PINS)
 #define C1 GPIO_PIN_12
 #define C1_Port GPIOB
@@ -40,7 +39,7 @@
 #define OFF false
 
 void KeypadPortGPIOInit(void);
-bool KeypadPortPinRead(GPIO_TypeDef * Port, uint16_t Pin);
-void KeypadPortPinWrite(GPIO_TypeDef * Port, uint16_t Pin, GPIO_PinState State);
+bool KeypadPortPinRead(GPIO_TypeDef *Port, uint16_t Pin);
+void KeypadPortPinWrite(GPIO_TypeDef *Port, uint16_t Pin, GPIO_PinState State);
 
 #endif /* API_INC_API_KEYPAD_PORT_H_ */

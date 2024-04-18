@@ -26,5 +26,9 @@ void GPIOInit(void);
 #define USB_OverCurrent_GPIO_Port GPIOG
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
+#define ALARM_Pin GPIO_PIN_15
+#define ALARM_Port GPIOE
+#define PUMP_Pin GPIO_PIN_14
+#define PUMP_Port GPIOE
 
 #endif /* API_INC_API_GPIO_H_ */

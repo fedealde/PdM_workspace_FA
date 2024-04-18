@@ -1,240 +1,82 @@
-02:40:25 **** Incremental Build of configuration Debug for project TEST ****
+01:39:52 **** Incremental Build of configuration Debug for project TEST ****
 make -j4 all 
-arm-none-eabi-size  TEST.elf 
-   text	   data	    bss	    dec	    hex	filename
-  15192	     80	   1808	  17080	   42b8	TEST.elf
-Finished building: default.size.stdout
- 
-02:40:40 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-size  TEST.elf 
-   text	   data	    bss	    dec	    hex	filename
-  15192	     80	   1808	  17080	   42b8	TEST.elf
-Finished building: default.size.stdout
- 
-02:41:05 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:19:14: warning: unused variable 'a' [-Wunused-variable]
-   19 |         char a = '\0';
-      |              ^
+arm-none-eabi-gcc "../Drivers/API/Src/API_FSM.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_FSM.d" -MT"Drivers/API/Src/API_FSM.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_FSM.o"
 arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: TEST.elf
  
 arm-none-eabi-size  TEST.elf 
 arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
    text	   data	    bss	    dec	    hex	filename
-  14456	     64	   1808	  16328	   3fc8	TEST.elf
+  25500	    148	   2236	  27884	   6cec	TEST.elf
 Finished building: default.size.stdout
  
 Finished building: TEST.list
  
-02:41:30 **** Incremental Build of configuration Debug for project TEST ****
+01:40:40 **** Incremental Build of configuration Debug for project TEST ****
 make -j4 all 
+arm-none-eabi-size  TEST.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25500	    148	   2236	  27884	   6cec	TEST.elf
+Finished building: default.size.stdout
+ 
+01:45:57 **** Incremental Build of configuration Debug for project TEST ****
+make -j4 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_FSM.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_FSM.d" -MT"Drivers/API/Src/API_FSM.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_FSM.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_GPIO.d" -MT"Drivers/API/Src/API_GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_GPIO.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
 arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: TEST.elf
  
 arm-none-eabi-size  TEST.elf 
 arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
    text	   data	    bss	    dec	    hex	filename
-  15192	     80	   1808	  17080	   42b8	TEST.elf
+  25536	    148	   2236	  27920	   6d10	TEST.elf
 Finished building: default.size.stdout
  
 Finished building: TEST.list
  
-02:43:25 **** Incremental Build of configuration Debug for project TEST ****
+01:57:03 **** Incremental Build of configuration Debug for project TEST ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_FSM.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_FSM.d" -MT"Drivers/API/Src/API_FSM.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_FSM.o"
 arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: TEST.elf
  
 arm-none-eabi-size  TEST.elf 
 arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
    text	   data	    bss	    dec	    hex	filename
-  15316	     80	   1808	  17204	   4334	TEST.elf
+  25536	    148	   2236	  27920	   6d10	TEST.elf
 Finished building: default.size.stdout
  
 Finished building: TEST.list
  
-02:43:46 **** Incremental Build of configuration Debug for project TEST ****
+02:08:31 **** Incremental Build of configuration Debug for project TEST ****
 make -j4 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_ADC.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_ADC.d" -MT"Drivers/API/Src/API_ADC.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_ADC.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Debounce.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Debounce.d" -MT"Drivers/API/Src/API_Debounce.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Debounce.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Delay.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Delay.d" -MT"Drivers/API/Src/API_Delay.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Delay.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_FSM.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_FSM.d" -MT"Drivers/API/Src/API_FSM.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_FSM.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_GPIO.d" -MT"Drivers/API/Src/API_GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_GPIO.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_I2C.d" -MT"Drivers/API/Src/API_I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_I2C.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Keypad.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Keypad.d" -MT"Drivers/API/Src/API_Keypad.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Keypad.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Keypad_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Keypad_port.d" -MT"Drivers/API/Src/API_Keypad_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Keypad_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_LCD.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_LCD.d" -MT"Drivers/API/Src/API_LCD.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_LCD.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_LCD_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_LCD_port.d" -MT"Drivers/API/Src/API_LCD_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_LCD_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Level_Sensor.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Level_Sensor.d" -MT"Drivers/API/Src/API_Level_Sensor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Level_Sensor.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_Level_Sensor_port.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_Level_Sensor_port.d" -MT"Drivers/API/Src/API_Level_Sensor_port.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_Level_Sensor_port.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_SystemClock.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_SystemClock.d" -MT"Drivers/API/Src/API_SystemClock.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_SystemClock.o"
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_UART.d" -MT"Drivers/API/Src/API_UART.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
 arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: TEST.elf
  
 arm-none-eabi-size  TEST.elf 
 arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
    text	   data	    bss	    dec	    hex	filename
-  15316	     80	   1808	  17204	   4334	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-02:47:48 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16296	     80	   1808	  18184	   4708	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-02:48:04 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16300	     80	   1808	  18188	   470c	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-02:48:59 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16300	     80	   1808	  18188	   470c	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-02:49:19 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16300	     80	   1808	  18188	   470c	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-02:56:53 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16332	     80	   1808	  18220	   472c	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-03:00:07 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:56:32: warning: passing argument 1 of 'UARTSendString' from incompatible pointer type [-Wincompatible-pointer-types]
-   56 |                 UARTSendString(&buffer);
-      |                                ^~~~~~~
-      |                                |
-      |                                char (*)[20]
-In file included from ../Core/Inc/main.h:40,
-                 from ../Core/Src/main.c:8:
-/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc/API_UART.h:49:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[20]'
-   49 | void UARTSendString(uint8_t * pstring);
-      |                     ~~~~~~~~~~^~~~~~~
-../Core/Src/main.c:57:32: error: expected expression before 'uint8_t'
-   57 |                 UARTSendString(uint8_t* "\n");
-      |                                ^~~~~~~
-make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
-"make -j4 all" terminated with exit code 2. Build might be incomplete.
-03:00:24 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:56:32: warning: passing argument 1 of 'UARTSendString' from incompatible pointer type [-Wincompatible-pointer-types]
-   56 |                 UARTSendString(&buffer);
-      |                                ^~~~~~~
-      |                                |
-      |                                char (*)[20]
-In file included from ../Core/Inc/main.h:40,
-                 from ../Core/Src/main.c:8:
-/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc/API_UART.h:49:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[20]'
-   49 | void UARTSendString(uint8_t * pstring);
-      |                     ~~~~~~~~~~^~~~~~~
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16352	     80	   1808	  18240	   4740	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-03:00:54 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:56:32: warning: pointer targets in passing argument 1 of 'UARTSendString' differ in signedness [-Wpointer-sign]
-   56 |                 UARTSendString(buffer);
-      |                                ^~~~~~
-      |                                |
-      |                                char *
-In file included from ../Core/Inc/main.h:40,
-                 from ../Core/Src/main.c:8:
-/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc/API_UART.h:49:31: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
-   49 | void UARTSendString(uint8_t * pstring);
-      |                     ~~~~~~~~~~^~~~~~~
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16352	     80	   1808	  18240	   4740	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-03:02:03 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16344	     80	   1808	  18232	   4738	TEST.elf
-Finished building: default.size.stdout
- 
-Finished building: TEST.list
- 
-03:03:06 **** Incremental Build of configuration Debug for project TEST ****
-make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/flealu/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/API/Inc" -I"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/Drivers/STM32F4xx_HAL_Driver/Inc" -I/home/flealu/Documents/GitHub/PdM_workspace_FA/PruebaADC/Drivers/API/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/flealu/Documents/GitHub/PdM_workspace_FA/TEST/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TEST.elf
- 
-arm-none-eabi-size  TEST.elf 
-arm-none-eabi-objdump -h -S TEST.elf  > "TEST.list"
-   text	   data	    bss	    dec	    hex	filename
-  16352	     80	   1808	  18240	   4740	TEST.elf
+  25536	    148	   2236	  27920	   6d10	TEST.elf
 Finished building: default.size.stdout
  
 Finished building: TEST.list
