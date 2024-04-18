@@ -8,15 +8,15 @@
 #ifndef API_INC_API_UART_H_
 #define API_INC_API_UART_H_
 
+//Includes
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_uart.h"
 
-/* User can use this section to tailor USARTx/UARTx instance used and associated
- resources */
-/* Definition for USARTx clock resources */
+
+/* Definition for USARTx clock resources and GPIOs*/
 #define USARTx                           USART3
 #define USARTx_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE();
 #define USARTx_RX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOD_CLK_ENABLE()

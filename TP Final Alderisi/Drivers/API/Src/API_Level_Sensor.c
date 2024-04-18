@@ -63,7 +63,7 @@ bool LevelSensorGetCurrentLevel(uint8_t *currentlevel) {
 
 	{
 
-		if (LevelSensorSense(&raw) != true) {
+		if (LevelSensorPortSense(&raw) != true) {
 			return false;
 		}
 
@@ -77,3 +77,8 @@ bool LevelSensorGetCurrentLevel(uint8_t *currentlevel) {
 
 }
 
+bool LevelSensorInit (void) {
+
+	return LevelSensorPortInit();
+
+}

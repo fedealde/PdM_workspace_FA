@@ -10,6 +10,14 @@
 #include "API_Delay.h"
 #include "API_GPIO.h"
 
+/**
+ * @brief Scan the keypad
+ *
+ * @return value of pressed key, '\0' if nothing was pressed
+ */
+static char KeypadScan(void);
+
+
 static void KeypadDebounceErrorHandler(void);
 
 #define KEYPAD_DEB_DELAY 40

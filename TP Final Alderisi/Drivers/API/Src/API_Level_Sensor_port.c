@@ -9,7 +9,7 @@
 
 static ADC_HandleTypeDef *handler = NULL;
 
-bool LevelSensorInit(void) {
+bool LevelSensorPortInit(void) {
 
 	handler = ADC1Init();
 
@@ -21,7 +21,7 @@ bool LevelSensorInit(void) {
 
 }
 
-bool LevelSensorSense(uint32_t *value) {
+bool LevelSensorPortSense(uint32_t *value) {
 
 	if (HAL_ADC_Start(handler) == HAL_OK) {
 

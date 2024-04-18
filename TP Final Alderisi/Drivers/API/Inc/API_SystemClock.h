@@ -10,6 +10,10 @@
 
 #include "stm32f4xx_hal.h"
 
+/**
+ * @brief Function to configure system clock
+ *
+ */
 void SystemClockConfig(void);
 
 #endif /* API_INC_API_SYSTEMCLOCK_H_ */

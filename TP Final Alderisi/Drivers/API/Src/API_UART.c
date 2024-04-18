@@ -31,9 +31,9 @@ bool UARTInit(void) {
 
 	if (HAL_UART_Init(&UARTHandle) != HAL_OK) {
 
-		UARTErrorHandler();
-
 		return false;
+
+		UARTErrorHandler();
 
 	}
 

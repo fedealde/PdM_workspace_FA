@@ -131,6 +131,7 @@ static void LCDSendByte(uint8_t byteToSend, bool type) {
 bool LCDInit(void) {
 
 	if (LCDPortInit() != true) {
+		return false;
 		LCDPortErrorHandler();
 	}
 

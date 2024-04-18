@@ -8,12 +8,17 @@
 #ifndef API_INC_API_GPIO_H_
 #define API_INC_API_GPIO_H_
 
+// Includes
 #include "stm32f4xx_hal.h"
 #include <stdint.h>
 #include <stdbool.h>
-
+/**
+ * @brief GPIOs Initialization
+ *
+ */
 void GPIOInit(void);
 
+//Defines for GPIOs and ports
 #define USER_Btn_Pin GPIO_PIN_13
 #define USER_Btn_GPIO_Port GPIOC
 #define LD1_Pin GPIO_PIN_0

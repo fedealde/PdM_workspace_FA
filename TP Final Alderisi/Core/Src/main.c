@@ -1,14 +1,15 @@
 /**
  ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
+ * @author			: Alderisi Federico
+ * @file			: main.c
+ * @brief			: Main program
+ * @attention		: This program was made based on auto-generation code
+ * 						provided for STM32CubeIDE MX - To compile, the
+ * 						auto-generating code must be OFF *
  ******************************************************************************
  */
 
 #include "main.h"
-
-#define TIME_BUTTON1 100
-#define TIME_BUTTON2 500
 
 /**
  * @brief  The application entry point.
@@ -17,12 +18,17 @@
 
 int main(void) {
 
-	HAL_Init();
+	//Initialization funtions
+
+	if( HAL_Init() != HAL_OK) {
+		Error_Handler();
+	}
 
 	SystemClockConfig();
 
 	GPIOInit();
-	if (LevelSensorInit() != true) {
+
+		if (LevelSensorInit() != true) {
 		Error_Handler();
 	}
 	if (UARTInit() != true) {
@@ -39,14 +45,18 @@ int main(void) {
 	ScreenMain();
 	FSMInit();
 
+	//While loop
 	while (1) {
 
+		//Updato of FSM
 		FSMUpdate();
 
+		//Update of Alarm Sensor Level
 		AlarmUpdate();
 
 	}
 
+	return 0;
 }
 
 /**

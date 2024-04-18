@@ -14,11 +14,34 @@
 
 typedef bool bool_t;
 
-void debounceFSM_init(void);	// debe cargar el estado inicial
-void debounceFSM_update(void);	// debe leer las entradas, resolver la lógica de
-// transición de estados y actualizar las salidas
-bool_t readKey(void); //It returns the state y the button was pressed
-bool_t readRisingEdge(void); //Read and return state edge, then reset
-bool_t readFallingEdge(void); //Read and return state edge, then reset
+/**
+ * @brief Initialize debounce FSM
+ *
+ */
+void debounceFSM_init(void);
+/**
+ * @brief Update debounce FSM
+ *
+ */
+void debounceFSM_update(void);
+//
+/**
+ * @brief Read a button state
+ *
+ * @return It returns the state when the button was pressed
+ */
+bool_t readKey(void);
+/**
+ * @brief Read raising state edge, then reset state
+ *
+ * @return Return raising state edge
+ */
+bool_t readRisingEdge(void);
+/**
+ * @brief Read falling state edge, then reset state
+ *
+ * @return Return falling state edge
+ */
+bool_t readFallingEdge(void);
 
 #endif /* API_INC_API_DEBOUNCE_H_ */
