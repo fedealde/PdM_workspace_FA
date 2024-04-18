@@ -20,7 +20,4 @@ void KeypadDebounceFSMInit(void);
 
 char KeypadDebounceFSMUpdate(void);
 
-
-
-
 #endif /* API_INC_API_KEYPAD_H_ */

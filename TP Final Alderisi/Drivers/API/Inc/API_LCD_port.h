@@ -15,10 +15,9 @@
 
 #define LCD_ADD_SHIFTED (LCD_ADD<<1)
 
-bool LCDPortInit (void);
+bool LCDPortInit(void);
 bool LCDPortSendByte(uint8_t data);
-void LCDPortDelay (uint32_t delay);
+void LCDPortDelay(uint32_t delay);
 void LCDPortErrorHandler(void);
-
 
 #endif /* API_INC_API_LCD_PORT_H_ */

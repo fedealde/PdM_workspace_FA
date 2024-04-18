@@ -15,7 +15,7 @@
 #include "stm32f4xx_hal_uart.h"
 
 /* User can use this section to tailor USARTx/UARTx instance used and associated
-   resources */
+ resources */
 /* Definition for USARTx clock resources */
 #define USARTx                           USART3
 #define USARTx_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE();
@@ -33,7 +33,6 @@
 #define USARTx_RX_GPIO_PORT              GPIOD
 #define USARTx_RX_AF                     GPIO_AF7_USART3
 
-
 /**
  * @brief initialize UART for stlink, print configuration through UART.
  *
@@ -46,7 +45,7 @@ bool UARTInit(void);
  *
  * @param pstring
  */
-void UARTSendString(uint8_t * pstring);
+void UARTSendString(uint8_t *pstring);
 
 /**
  * @brief send pstring thorough UART, using the size as limit of sent information
@@ -54,7 +53,7 @@ void UARTSendString(uint8_t * pstring);
  * @param pstring
  * @param size
  */
-void UARTSendStringSize(uint8_t * pstring, uint16_t size);
+void UARTSendStringSize(uint8_t *pstring, uint16_t size);
 
 /**
  * @brief receive information from UART, specifying maximun size
@@ -62,7 +61,6 @@ void UARTSendStringSize(uint8_t * pstring, uint16_t size);
  * @param pstring
  * @param size
  */
-void UARTReceiveStringSize(uint8_t * pstring, uint16_t size);
-
+void UARTReceiveStringSize(uint8_t *pstring, uint16_t size);
 
 #endif /* API_INC_API_UART_H_ */

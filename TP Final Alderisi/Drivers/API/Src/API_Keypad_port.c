@@ -8,10 +8,10 @@
 #include "API_Keypad_port.h"
 
 const uint16_t COLS_PINS_ARRAY[] = { C1, C2, C3, C4 };
-GPIO_TypeDef * COLS_PORTS_ARRAY[] = { C1_Port, C2_Port, C3_Port, C4_Port };
+GPIO_TypeDef *COLS_PORTS_ARRAY[] = { C1_Port, C2_Port, C3_Port, C4_Port };
 
 const uint16_t ROWS_PINS_ARRAY[] = { R1, R2, R3, R4 };
-GPIO_TypeDef * ROWS_PORTS_ARRAY[] = { R1_Port, R2_Port, R3_Port, R4_Port };
+GPIO_TypeDef *ROWS_PORTS_ARRAY[] = { R1_Port, R2_Port, R3_Port, R4_Port };
 
 void KeypadPortGPIOInit(void) {
 
@@ -46,7 +46,7 @@ void KeypadPortGPIOInit(void) {
 
 }
 
-bool KeypadPortPinRead(GPIO_TypeDef * Port, uint16_t Pin) {
+bool KeypadPortPinRead(GPIO_TypeDef *Port, uint16_t Pin) {
 
 	if (HAL_GPIO_ReadPin(Port, Pin) == GPIO_PIN_SET) {
 		return true;
@@ -56,7 +56,7 @@ bool KeypadPortPinRead(GPIO_TypeDef * Port, uint16_t Pin) {
 
 }
 
-void KeypadPortPinWrite(GPIO_TypeDef * Port, uint16_t Pin, GPIO_PinState State) {
+void KeypadPortPinWrite(GPIO_TypeDef *Port, uint16_t Pin, GPIO_PinState State) {
 
 	HAL_GPIO_WritePin(Port, Pin, State);
 

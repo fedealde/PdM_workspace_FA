@@ -17,12 +17,12 @@ static void DebounceErrorHandler(void);
  * @brief Set the rising variable to be read from outside
  *
  */
-static void setRisingEdge (void);
+static void setRisingEdge(void);
 /**
  * @brief Set the falling variable to be read from outside
  *
  */
-static void setFallingEdge (void);
+static void setFallingEdge(void);
 
 //Debounce states for the FSM
 typedef enum {
@@ -57,7 +57,7 @@ void debounceFSM_update(void) {
 
 	case BUTTON_UP: //It verifies if the button was pressed and change the state
 
-		if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port ,USER_Btn_Pin)) {
+		if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin)) {
 
 			debouce_state = BUTTON_FALLING;
 			setFallingEdge();
@@ -70,7 +70,7 @@ void debounceFSM_update(void) {
 
 		if (delayRead(&debounce_delay)) {
 
-			if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port ,USER_Btn_Pin) == true) {
+			if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin) == true) {
 
 				debouce_state = BUTTON_DOWN;
 				button_state = true; //Change the variable that confirm the pressed button
@@ -87,7 +87,7 @@ void debounceFSM_update(void) {
 
 	case BUTTON_DOWN: //It verifies if the button was released and change the state
 
-		if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port ,USER_Btn_Pin) == false) {
+		if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin) == false) {
 
 			debouce_state = BUTTON_RAISING;
 			setRisingEdge();
@@ -100,7 +100,7 @@ void debounceFSM_update(void) {
 
 		if (delayRead(&debounce_delay)) {
 
-			if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port ,USER_Btn_Pin) == false) {
+			if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin) == false) {
 
 				debouce_state = BUTTON_UP;
 
@@ -131,12 +131,11 @@ void debounceFSM_init(void) { //initialize the FSM state
 	delayInit(&debounce_delay, DEBOUNCE_DELAY);
 }
 
-bool_t readRisingEdge (void){
+bool_t readRisingEdge(void) {
 
 	bool_t state = statusRisingEdge;
 
-	if(statusRisingEdge)
-	{
+	if (statusRisingEdge) {
 		statusRisingEdge = false;
 	}
 
@@ -144,12 +143,11 @@ bool_t readRisingEdge (void){
 
 }
 
-bool_t readFallingEdge (void){
+bool_t readFallingEdge(void) {
 
 	bool_t state = statusFallingEdge;
 
-	if(statusFallingEdge)
-	{
+	if (statusFallingEdge) {
 		statusFallingEdge = false;
 	}
 
@@ -157,19 +155,16 @@ bool_t readFallingEdge (void){
 
 }
 
+static void setRisingEdge(void) {
 
-static void setRisingEdge (void){
-
-		statusRisingEdge = true;
+	statusRisingEdge = true;
 
 }
 
-static void setFallingEdge (void){
+static void setFallingEdge(void) {
 
-		statusFallingEdge = true;
+	statusFallingEdge = true;
 }
-
-
 
 static void DebounceErrorHandler(void) {
 	/* Turn LED_RED on */

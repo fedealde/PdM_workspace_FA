@@ -13,8 +13,6 @@
 #include <stdbool.h>
 #include "stm32f4xx_hal.h"
 
-
-
 /**
  * @typedef tick_t
  * @brief Used to compare ticks from HAL function
@@ -29,14 +27,14 @@ typedef uint32_t tick_t;
 typedef bool bool_t;
 
 /**
-* @typedef delay_t
-* @brief Struct used as timer
-* @param startTime take the actual time
-* @param duration is the time to be compare
-* @param running is the state of timer, could be true or false
-*
-*/
-typedef struct{
+ * @typedef delay_t
+ * @brief Struct used as timer
+ * @param startTime take the actual time
+ * @param duration is the time to be compare
+ * @param running is the state of timer, could be true or false
+ *
+ */
+typedef struct {
 	tick_t startTime;
 	tick_t duration;
 	bool_t running;
@@ -72,6 +70,5 @@ void delayWrite(delay_t *delay, tick_t duration);
  * @brief turn on a led on a while loop
  *
  */
-
 
 #endif /* API_INC_API_DELAY_H_ */

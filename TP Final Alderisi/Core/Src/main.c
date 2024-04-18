@@ -7,16 +7,15 @@
 
 #include "main.h"
 
+#define TIME_BUTTON1 100
+#define TIME_BUTTON2 500
 
 /**
  * @brief  The application entry point.
  * @retval int
  */
-int main(void) {
 
-	char a = '\0';
-	uint8_t level;
-	char buffer[20] = { 0 };
+int main(void) {
 
 	HAL_Init();
 
@@ -37,31 +36,18 @@ int main(void) {
 	KeypadDebounceFSMInit();
 
 	LCDClear();
-
-	LCDPosition(2, 2);
-	LCDSendString((uint8_t*)"CHAU");
+	ScreenMain();
+	FSMInit();
 
 	while (1) {
 
-		a = KeypadDebounceFSMUpdate();
-		LCDHome();
-		if(a!='\0')LCDSendData(a);
+		FSMUpdate();
 
-		LCDPosition(0, 3);
-		LevelSensorGetCurrentLevel(&level);
-		sprintf(buffer, "%2d", level);
-		LCDSendString((uint8_t*) buffer);
-		UARTSendString((uint8_t*) buffer);
-		UARTSendString((uint8_t*) "\n");
-		for(uint8_t i=0; i<20; i++)
-		{buffer[i]=' ';}
+		AlarmUpdate();
 
 	}
 
-	return 0;
-
 }
-
 
 /**
  * @brief  This function is executed in case of error occurrence.
