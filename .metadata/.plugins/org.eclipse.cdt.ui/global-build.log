@@ -89,3 +89,10 @@ Finished building: default.size.stdout
  
 Finished building: TP Final Alderisi.list
  
+17:47:20 **** Incremental Build of configuration Debug for project TP Final Alderisi ****
+make -j4 all 
+arm-none-eabi-size  TP\ Final\ Alderisi.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25552	    148	   2236	  27936	   6d20	TP Final Alderisi.elf
+Finished building: default.size.stdout
+ 
